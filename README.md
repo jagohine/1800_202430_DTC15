@@ -11,7 +11,7 @@ List team members and/or short bio's here...
 
 - ...Hi! My name is Jago Hine and I'm excited to start coding.
 - ...Hi my name is Zoey, I am happy to start the journey of we dev!
-- ...Hi my name is Khai, nice to meet you!
+- ...Hi my name is Khai, nice to meet you! Hi there
 
 ## 3. Technologies and Resources Used
 
