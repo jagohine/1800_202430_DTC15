@@ -1,1 +1,30 @@
 
+.banner-container {
+    background-image: url('../images/RR_background.jpg');
+    background-size: cover;
+    background-position: center;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.call-to-action {
+    background-color: rgba(0, 0, 0, 0.4);
+    border-radius: 10px;
+    padding: 20px;
+    width: 100%;
+    max-width: 400px;
+    justify-content: center;
+    align-items: center;
+}
+
+.call-to-action h2,
+.call-to-action p {
+    margin-bottom: 20px;
+    color: #ffffff;
+}
+
+.call-to-action a {
+    margin-top: 10px;
+}
