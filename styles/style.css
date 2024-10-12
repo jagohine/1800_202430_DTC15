@@ -1,12 +1,59 @@
 
+.navbar-light .navbar-brand {
+    color: transparent;
+}
+
+
+.navbar-light .navbar-nav .nav-link {
+    color: white;
+    font-weight: bold;
+    font-size: 18px;
+    padding: 0 10px;
+}
+
+.form-control {
+    font-size: 18px;
+    height: 38px;
+}
+
+.btn-light {
+    font-size: 18px;
+    font-weight: bold;
+    height: 38px;
+}
+
+.navbar-light {
+    z-index: 1;
+}
+
+.navbar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.navbar-brand {
+    display: flex;
+    align-items: center;
+    margin-right: auto;
+    padding-left: 10;
+}
+
+.navbar-nav {
+    display: flex;
+    align-items: center;
+}
+
 .banner-container {
     background-image: url('../images/RR_background.jpg');
     background-size: cover;
     background-position: center;
     height: 100vh;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    width: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: -1;
 }
 
 .call-to-action {
