@@ -1,14 +1,13 @@
-
 .navbar-light .navbar-brand {
     color: transparent;
 }
-
 
 .navbar-light .navbar-nav .nav-link {
     color: white;
     font-weight: bold;
     font-size: 18px;
-    padding: 0 10px;
+    padding: 10px;
+    text-align: left;
 }
 
 .form-control {
@@ -17,6 +16,7 @@
 }
 
 .btn-light {
+    align-items: center;
     font-size: 18px;
     font-weight: bold;
     height: 38px;
@@ -37,7 +37,7 @@
 }
 .navbar-brand {
     display: flex;
-    align-items: center;
+    align-items: left;
     margin-right: auto;
     padding:0;
     padding-left: 10;
@@ -47,7 +47,7 @@
 
 .navbar-nav {
     display: flex;
-    align-items: center;
+    align-items: left;
 }
 
 .banner-container {
