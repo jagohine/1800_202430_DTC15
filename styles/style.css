@@ -30,13 +30,19 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
+    
 }
-
+.container-fluid{
+    height:auto;
+}
 .navbar-brand {
     display: flex;
     align-items: center;
     margin-right: auto;
+    padding:0;
     padding-left: 10;
+    height: auto;
+
 }
 
 .navbar-nav {
