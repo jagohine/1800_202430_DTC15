@@ -10,13 +10,7 @@
     text-align: left;
 }
 
-.form-control .btn-light {
-    align-items: center;
-    justify-items: center;
-    font-size: 18px;
-    height: 38px;
 
-}
 
 .navbar-light {
     z-index: 1;
@@ -98,21 +92,34 @@
     #slogan {
             font-size: 56px;
         }
-    .navbar .d-flex {
-        flex-direction: row;
-        align-items: center;
+    .navbar {
+        flex-direction: column;
+        align-items: flex-start;
+        justify-content: flex-start;
+        width: 100%;
     }
+
+    .d-flex {
+        flex-direction: column;
+        align-items: flex-start;
+        justify-content: flex-start;
+        width: 100%;
+
+    }
+
     .form-control {
         width: auto;
         font-size: 18px;
         height: 38px;
+        margin-bottom: 20px;
     }
     .btn-light {
+        align-self: flex-start;
         font-size: 18px;
         height: 38px;
-        margin-left: 10px;
     }
 }
+
 @media screen and (min-width: 900px){
     #slogan-br {
         display: none;
