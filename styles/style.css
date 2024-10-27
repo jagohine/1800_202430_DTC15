@@ -3,7 +3,7 @@
 }
 
 .navbar-light .navbar-nav .nav-link {
-    color: white;
+    color: #ffffff;
     font-weight: bold;
     font-size:18px;
     padding: 10px;
@@ -30,7 +30,7 @@
 }
 
 .navbar-toggler {
-    background-color:white;
+    background-color:#ffffff;
 }
 .container-fluid{
     height:auto;
@@ -67,14 +67,14 @@
 }
 
 #login {
-    color:white;
+    color:#ffffff;
     font-size: 18px;
     justify-content: center;
     align-items: center;
 }
 
 #loader {
-    color: white;
+    color: #ffffff;
     font-size: 12px;
 }
 
@@ -85,6 +85,9 @@
     padding-bottom: 6rem;
     text-align: center;
 }
+
+
+
 @media screen and (max-width: 425px){
     #slogan{
         font-size: 40px;
@@ -129,6 +132,35 @@
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.9);
     display: flex;
     flex-direction: column;
+}
+
+.authentication {
+    border: #dee2e6;
+    border-style: solid;
+    border-width: 1px;
+    padding: 10px;
+    width: fit-content;
+    height: fit-content;
+    background-color: rgba(0, 0, 0, 0.4);
+    border-radius: 10px;
+    justify-content: center;
+    align-content: center;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.9);
+}
+
+.greeting {
+    border: #dee2e6;
+    border-style: solid;
+    border-width: 1px;
+    width: fit-content;
+    height: fit-content;
+    padding: 10px;
+    background-color: rgba(0, 0, 0, 0.4);
+    border-radius: 10px;
+    justify-content: center;
+    align-content: center;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.9);
+    color:#ffffff
 }
 
 .call-to-action h2,
