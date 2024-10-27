@@ -5,22 +5,17 @@
 .navbar-light .navbar-nav .nav-link {
     color: white;
     font-weight: bold;
-    font-size:24px;
+    font-size:18px;
     padding: 10px;
     text-align: left;
 }
 
-.form-control {
-    font-size: 18px;
-    height: 38px;
-}
-
-.btn-light {
+.form-control .btn-light {
     align-items: center;
     justify-items: center;
-    font-size: 20px;
-    font-weight: bold;
-    height: 44px;
+    font-size: 18px;
+    height: 38px;
+
 }
 
 .navbar-light {
@@ -33,15 +28,20 @@
     justify-content: space-between;
     
 }
+
+.navbar-toggler {
+    background-color:white;
+}
 .container-fluid{
     height:auto;
 }
 .navbar-brand {
     display: flex;
     align-items: left;
+    justify-content: left;
     margin-right: auto;
-    padding:0;
-    padding-left: 10;
+    margin-left: 0;
+    padding-left:0;
     height: auto;
 
 }
@@ -83,6 +83,20 @@
     #slogan {
             font-size: 56px;
         }
+    .navbar .d-flex {
+        flex-direction: row;
+        align-items: center;
+    }
+    .form-control {
+        width: auto;
+        font-size: 18px;
+        height: 38px;
+    }
+    .btn-light {
+        font-size: 18px;
+        height: 38px;
+        margin-left: 10px;
+    }
 }
 @media screen and (min-width: 900px){
     #slogan-br {
@@ -116,5 +130,5 @@
 }
 
 .custom-login {
-    font-size: 24px;
+    font-size: 20px;
 }
