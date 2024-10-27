@@ -66,6 +66,18 @@
     transition: transform .2s;
 }
 
+#login {
+    color:white;
+    font-size: 18px;
+    justify-content: center;
+    align-items: center;
+}
+
+#loader {
+    color: white;
+    font-size: 12px;
+}
+
 #slogan{
     color: #ffffff;
     font-size: 76px;
