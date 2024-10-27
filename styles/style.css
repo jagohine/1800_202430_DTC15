@@ -172,6 +172,9 @@
     align-content: center;
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.9);
     color:#ffffff;
+    text-align: left;
+    display: flex;
+    flex-direction: column;
 }
 
 .call-to-action h2,
@@ -184,6 +187,8 @@
     margin-top: 10px;
 }
 
-.custom-login {
-    font-size: 20px;
+.btn-get-start {
+    font-size: 18px;
+    align-self: center;
+    margin-top: 20px;
 }
