@@ -5,7 +5,9 @@
 * Dark brown (Accent):  #52025A
 */
 
-
+.body{
+    min-height: 100vh !important;
+}
 .navbar-light .navbar-brand {
     color: transparent;
 }
@@ -29,9 +31,24 @@
     align-items: center;
     justify-content: space-between;
     background-color: #1D499B;
-
+}
+.navbar_bottom{
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    margin: 0 auto;
+    background-color: #ffffff;
+    padding: 0.25rem;
+    z-index: 1;
+    position: fixed;
+    bottom: 0;
+    
 }
 
+.navbar_bottom_container{
+    width: 540px;
+    margin: 0 auto;
+}
 .navbar-toggler {
     background-color: #ffffff;
 }
@@ -45,8 +62,8 @@
     align-items: left;
     justify-content: left;
     margin-right: auto;
-    margin-left: 0;
-    padding-left: 0;
+    margin: 0;
+    padding: 0;
     height: auto;
 
 }
@@ -104,6 +121,10 @@
 .card-image{
     height: 12rem;
 }
+.card_title {
+    font-size: 16px;
+    font-weight: 700;
+}
 
 @media screen and (max-width: 425px) {
     .content {
@@ -117,9 +138,14 @@
     }
     .card_title{
         font-size: 14px;
+        
     }
     .card-image {
         height: 10rem;
+    }
+    .navbar_bottom_container {
+        width: 240px;
+        margin: 0 auto;
     }
 }
 
@@ -151,6 +177,14 @@
         align-self: flex-start;
         font-size: 18px;
         height: 38px;
+    }
+    .navbar_bottom_container {
+        padding-left:6rem;
+        padding-right: 6rem;
+        margin: 0 auto;
+    }
+    .card {
+        width: 22rem;
     }
 
 }
