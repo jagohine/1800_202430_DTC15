@@ -125,6 +125,13 @@
     font-size: 16px;
     font-weight: 700;
 }
+.guide_arrow{
+    opacity: 0.5; 
+    margin-left: 18rem;
+}
+.guide_text{
+    font-size: 1.5rem;
+}
 
 @media screen and (max-width: 425px) {
     .content {
@@ -146,6 +153,14 @@
     .navbar_bottom_container {
         width: 240px;
         margin: 0 auto;
+    }
+    .guide_arrow {
+        opacity: 0.5;
+        margin-left: 8rem;
+    }
+    .guide_text{
+        font-size: 1rem;
+        text-align: center;
     }
 }
 
@@ -186,8 +201,17 @@
     .card {
         width: 22rem;
     }
-
+    .guide_arrow {
+        opacity: 0.5;
+        margin-left: 12rem;
+    }    
+    .guide_text{
+        font-size: 1.25rem;
+        text-align: center;
+    }
 }
+
+
 
 @media screen and (min-width: 900px) {
     #slogan-br {

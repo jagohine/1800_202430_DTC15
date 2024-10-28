@@ -44,9 +44,15 @@
     <!--This is the navbar-->
     <nav id="topNavbarPlaceholder"></nav>
     <!--End of navbar-->
+
     <div
       class="content banner-container d-flex flex-column align-items-center justify-content-center"
     >
+      <!--This is the guide info-->
+      <div id="guideInfoPlaceholder" class="guide flex-column"></div>
+      <!--End of  guide info-->
+
+      <!--This is the ongoing inspection list, will be modularize after getting user json -->
       <div class="content_inspection_list">
         <h2 class="content_inspection_list_title">Ongoing inspections</h2>
         <div class="card shadow border-0">
@@ -64,14 +70,16 @@
           </div>
         </div>
       </div>
+      <!--End of ongoing inspection list-->
+
       <!---------our web content here (create post, inspection list, etc.)--------->
     </div>
 
     <!--This is the bottom navbar-->
-    <footer
+    <nav
       id="bottomNavbarPlaceholder"
       class="navbar_bottom shadow-lg border-1"
-    ></footer>
+    ></nav>
   </body>
 
   <!-- Link to scripts -->
