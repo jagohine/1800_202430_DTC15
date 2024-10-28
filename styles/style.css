@@ -1,3 +1,4 @@
+
 .navbar-light .navbar-brand {
     color: transparent;
 }
@@ -6,11 +7,9 @@
     color: #ffffff;
     font-weight: bold;
     font-size:18px;
-    padding: 10px;
+    padding: 4px;
     text-align: left;
 }
-
-
 
 .navbar-light {
     z-index: 1;
@@ -80,7 +79,12 @@
     text-align: center;
 }
 
-
+.logo {
+    padding-left: 30px;
+    padding-right: 30px;
+    
+    object-fit: cover
+}
 
 @media screen and (max-width: 425px){
     #slogan{

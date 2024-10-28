@@ -1,0 +1,168 @@
+/* New Color Palette:
+* Lightest: bright blue         #55DDE0     (text, contrast with dark)
+* Dark Blue (Primary):    #1D499B
+* Light blue (Secondary): #00A7E1
+* Dark brown (Accent):  #52025A
+*/
+
+
+.navbar-light .navbar-brand {
+    color: transparent;
+}
+
+.navbar-light .navbar-nav .nav-link {
+    color: #ffffff;
+    font-weight: bold;
+    font-size: 18px;
+    padding:4px;
+    text-align: left;
+}
+
+
+
+.navbar-light {
+    z-index: 1;
+}
+
+.navbar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: #1D499B;
+
+}
+
+.navbar-toggler {
+    background-color: #ffffff;
+}
+
+.container-fluid {
+    height: auto;
+}
+
+.navbar-brand {
+    display: flex;
+    align-items: left;
+    justify-content: left;
+    margin-right: auto;
+    margin-left: 0;
+    padding-left: 0;
+    height: auto;
+
+}
+
+.navbar-nav {
+    display: flex;
+    align-items: left;
+}
+.content{
+    max-width: 768px;
+    margin: 0 auto;
+}
+.content_inspection_list{
+    padding-top:3rem;
+    padding-bottom: 3rem;
+}
+.content_inspection_list_title{
+    padding-bottom: 1rem;
+}
+.card-img{
+    object-fit: cover;
+}
+.btn-primary{
+    background-color: #1D499B;
+}
+#login {
+    color: #ffffff;
+    font-size: 18px;
+    justify-content: center;
+    align-items: center;
+}
+
+#loader {
+    color: #ffffff;
+    font-size: 12px;
+}
+
+#slogan {
+    color: #ffffff;
+    font-size: 76px;
+    font-weight: 800;
+    padding-bottom: 6rem;
+    text-align: center;
+}
+
+.logo {
+    padding-left: 30px;
+    padding-right: 30px;
+
+    object-fit: cover
+}
+.card{
+    width: 36rem;
+}
+.card-image{
+    height: 12rem;
+}
+
+@media screen and (max-width: 425px) {
+    .content {
+        padding-left: 1rem;
+        padding-right: 1rem;
+        margin: 0 auto;
+    }
+    .card{
+        width: 18rem;
+        height: 14rem;
+    }
+    .card_title{
+        font-size: 14px;
+    }
+    .card-image {
+        height: 10rem;
+    }
+}
+
+@media only screen and (max-width: 768px) and (min-width: 425px) {
+
+    .navbar {
+        flex-direction: column;
+        align-items: flex-start;
+        justify-content: flex-start;
+        width: 100%;
+    }
+
+    .d-flex {
+        flex-direction: column;
+        align-items: flex-start;
+        justify-content: flex-start;
+        width: 100%;
+
+    }
+
+    .form-control {
+        width: auto;
+        font-size: 18px;
+        height: 38px;
+        margin-bottom: 20px;
+    }
+
+    .btn-light {
+        align-self: flex-start;
+        font-size: 18px;
+        height: 38px;
+    }
+
+}
+
+@media screen and (min-width: 900px) {
+    #slogan-br {
+        display: none;
+    }
+}
+
+.btn-get-started {
+    font-size: 18px;
+    align-self: center;
+    margin-top: 20px;
+}
