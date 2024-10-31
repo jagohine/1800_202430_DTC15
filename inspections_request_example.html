@@ -1,263 +1,312 @@
 <!DOCTYPE html>
 <html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Home</title>
+    <meta name="comp1800 template" content="My 1800 App" />
 
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Home</title>
-  <meta name="comp1800 template" content="My 1800 App" />
+    <!-- Bootstrap Library CSS CDN go here -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN"
+      crossorigin="anonymous"
+    />
 
-  <!-- Bootstrap Library CSS CDN go here -->
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
-    integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous" />
+    <!-- Boostrap Library JS CDN  go here -->
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
+      crossorigin="anonymous"
+    ></script>
 
-  <!-- Boostrap Library JS CDN  go here -->
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
-    integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
-    crossorigin="anonymous"></script>
+    <!-- Other libraries go here -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-firestore.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/ui/4.8.1/firebase-ui-auth.js"></script>
+    <link
+      type="text/css"
+      rel="stylesheet"
+      href="https://www.gstatic.com/firebasejs/ui/4.8.1/firebase-ui-auth.css"
+    />
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-storage.js"></script>
 
-  <!-- Other libraries go here -->
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-  <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
-  <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-firestore.js"></script>
-  <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-auth.js"></script>
-  <script src="https://www.gstatic.com/firebasejs/ui/4.8.1/firebase-ui-auth.js"></script>
-  <link type="text/css" rel="stylesheet" href="https://www.gstatic.com/firebasejs/ui/4.8.1/firebase-ui-auth.css" />
-  <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-storage.js"></script>
+    <!-- jquery -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
 
-  <!-- jquery -->
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <!-- Link to styles of your own -->
+    <link rel="stylesheet" href="./styles/homepage.css" />
+    <style>
+      body,
+      html {
+        height: 100%;
+        margin: 0;
+        overflow-y: auto;
+      }
 
-  <!-- Link to styles of your own -->
-  <link rel="stylesheet" href="./styles/homepage.css" />
-  <style>
-    body,
-    html {
-      height: 100%;
-      margin: 0;
-      overflow-y: auto;
-    }
+      .body {
+        min-height: 100vh;
+        padding-bottom: 80px;
+        position: relative;
+        overflow-y: auto;
+      }
 
-    .body {
-      min-height: 100vh;
-      padding-bottom: 80px;
-      position: relative;
-      overflow-y: auto;
-    }
+      main {
+        flex: 1;
+        overflow-y: auto;
+        padding-bottom: 100px;
+      }
 
-    main {
-      flex: 1;
-      overflow-y: auto;
-      padding-bottom: 100px;
-    }
+      #bottom_menu_bar {
+        height: 80px;
+        background-color: #1d499b;
+      }
 
-    #bottom_menu_bar {
-      height: 80px;
-      background-color: #1D499B;
-    }
+      .container {
+        width: 100%;
+      }
 
-    .container {
-      width: 100%;
-    }
+      .h-full {
+        height: 100%;
+      }
 
-    .h-full {
-      height: 100%;
-    }
+      .h-auto {
+        height: auto;
+      }
 
-    .h-auto {
-      height: auto;
-    }
+      .bg-danger {
+        background-color: #dc3545;
+      }
 
-    .bg-danger {
-      background-color: #dc3545;
-    }
+      .bg-primary {
+        background-color: #1d499b;
+      }
 
-    .bg-primary {
-      background-color: #1D499B;
-    }
+      .past-inspections-container {
+        max-height: 400px;
+        overflow-y: scroll;
+      }
 
-    .past-inspections-container {
-      max-height: 400px;
-      overflow-y: scroll;
-    }
+      #menu {
+        display: flex;
+        justify-content: center;
+        gap: 10px;
+        margin: 20px 0;
+      }
 
-    #menu {
-      display: flex;
-      justify-content: center;
-      gap: 10px;
-      margin: 20px 0;
-    }
+      #menu button {
+        padding: 10px 20px;
+        border: none;
+        background-color: grey;
+        color: white;
+        cursor: pointer;
+        border-radius: 5px;
+        font-size: 16px;
+      }
 
-    #menu button {
-      padding: 10px 20px;
-      border: none;
-      background-color: grey;
-      color: white;
-      cursor: pointer;
-      border-radius: 5px;
-      font-size: 16px;
-    }
+      #menu button:hover {
+        background-color: #0056b3;
+      }
 
-    #menu button:hover {
-      background-color: #0056b3;
-    }
+      .room-photo {
+        height: auto;
+        width: 100%;
+        background-color: transparent;
+      }
 
-    .room-photo {
-      height: auto;
-      width: 100%;
-      background-color: transparent;
-    }
+      .inspection-post {
+        background-color: cornflowerblue;
+      }
 
-    .inspection-post {
-      background-color: cornflowerblue;
-    }
+      .align-bottom {
+        margin-top: auto;
+      }
+    </style>
+  </head>
 
-    .align-bottom {
-      margin-top: auto;
-    }
-  </style>
-</head>
+  <body class="body">
+    <!--This is the navbar-->
+    <nav id="topNavbarPlaceholder"></nav>
+    <!--End of navbar-->
 
-<body class="body">
-  <!--This is the navbar-->
-  <nav id="topNavbarPlaceholder"></nav>
-  <!--End of navbar-->
+    <!-- main section -->
+    <main
+      class="container d-flex flex-column mx-2 align-items-center mx-auto mt-4"
+      style="width: 100%"
+    >
+      <div
+        class="d-flex mx-2 flex-column mb-4"
+        style="height: 40%; width: 100%; max-width: 500px"
+      >
+        <div class="d-flex align-self-start w-100">
+          <h3 class="mb-2" style="font-weight: bold">
+            Waiting to be inspected
+          </h3>
+        </div>
+        <div class="d-flex flex-column mt-4 rounded-4 px-2 inspection-post">
+          <!-- inspection post -->
+          <div class="d-flex flex-column mx-1">
+            <!-- address -->
+            <h4>Address: 1234 Fake St.</h4>
+          </div>
+          <!-- room photo -->
+          <div class="d-flex flex-column">
+            <img
+              src="./images/interior_inspection.png"
+              alt="room"
+              class="room-photo"
+            />
+          </div>
+          <div class="d-flex flex-column mx-1">
+            <!-- Requirements heading -->
+            <h4>Requirements</h4>
+          </div>
+          <!-- requirements text -->
+          <div>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Mollitia
+            quidem excepturi sed in praesentium accusamus? Quam eligendi
+            reprehenderit laborum commodi.
+          </div>
+        </div>
+        <div class="d-flex flex-column mt-4">
+          <!-- Inspectors applying heading-->
+          <div class="d-flex flex-column mx-1">
+            <h4>Inspectors applying</h4>
+          </div>
 
-  <!-- main section -->
-  <main class="container d-flex flex-column mx-2 align-items-center mx-auto mt-4" style="width: 100%;">
-    <div class="d-flex mx-2 flex-column mb-4" style="height: 40%; width: 100%; max-width: 500px;">
-      <div class="d-flex align-self-start w-100">
-        <h3 class="mb-2" style="font-weight: bold"> Waiting to be inspected </h3>
+          <!-- inspector application divs -->
+
+          <div
+            class="d-flex flex-row rounded-2 justify-content-between p-2 mb-2"
+            style="background-color: gray"
+          >
+            <div class="d-flex flex-column w-auto mr-auto">
+              <!-- name, profile pic and stars -->
+              <div class="d-flex flex-row align-items-center mr-auto">
+                <div class="d-flex flex-row mx-2">
+                  <img
+                    src="images/example_images/man.png"
+                    alt="profile pic"
+                    style="height: 30px; width: 30px"
+                  />
+                  <div class="mx-1 align-bottom">Alex</div>
+                </div>
+                <div class="mx-1 align-bottom">5.5 ★</div>
+              </div>
+              <!-- inspector self introduction -->
+              <div class="align-bottom">
+                This is Alex's self introduction...
+              </div>
+            </div>
+
+            <!-- Buttons container -->
+            <div class="d-flex flex-column gap-2 d-inline-flex w-auto">
+              <button class="btn btn-primary">More</button>
+              <button class="btn btn-success">Choose</button>
+            </div>
+          </div>
+
+          <div
+            class="d-flex flex-row rounded-2 justify-content-between p-2 mb-2"
+            style="background-color: gray"
+          >
+            <div class="d-flex flex-column w-auto mr-auto">
+              <!-- name, profile pic and stars -->
+              <div class="d-flex flex-row align-items-center mr-auto">
+                <div class="d-flex flex-row mx-2">
+                  <img
+                    src="images/example_images/girl.png"
+                    alt="profile pic"
+                    style="height: 30px; width: 30px"
+                  />
+                  <div class="mx-1 align-bottom">Eve</div>
+                </div>
+                <div class="mx-1 align-bottom">7.2 ★</div>
+              </div>
+              <!-- inspector self introduction -->
+              <div class="align-bottom">This is Eve's self introduction...</div>
+            </div>
+
+            <!-- Buttons container -->
+            <div class="d-flex flex-column gap-2 d-inline-flex w-auto">
+              <button class="btn btn-primary">More</button>
+              <button class="btn btn-success">Choose</button>
+            </div>
+          </div>
+
+          <div
+            class="d-flex flex-row rounded-2 justify-content-between p-2 mb-2"
+            style="background-color: gray"
+          >
+            <div class="d-flex flex-column w-auto mr-auto">
+              <!-- name, profile pic and stars -->
+              <div class="d-flex flex-row align-items-center mr-auto">
+                <div class="d-flex flex-row mx-2">
+                  <img
+                    src="images/example_images/man.png"
+                    alt="profile pic"
+                    style="height: 30px; width: 30px"
+                  />
+                  <div class="mx-1 align-bottom">Bob</div>
+                </div>
+                <div class="mx-1 align-bottom">5.0 ★</div>
+              </div>
+              <!-- inspector self introduction -->
+              <div class="align-bottom">This is Bob's self introduction...</div>
+            </div>
+
+            <!-- Buttons container -->
+            <div class="d-flex flex-column gap-2 d-inline-flex w-auto">
+              <button class="btn btn-primary">More</button>
+              <button class="btn btn-success">Choose</button>
+            </div>
+          </div>
+
+          <div
+            class="d-flex flex-row rounded-2 justify-content-between p-2 mb-2"
+            style="background-color: gray"
+          >
+            <div class="d-flex flex-column w-auto mr-auto">
+              <!-- name, profile pic and stars -->
+              <div class="d-flex flex-row align-items-center mr-auto">
+                <div class="d-flex flex-row mx-2">
+                  <img
+                    src="images/example_images/girl2.png"
+                    alt="profile pic"
+                    style="height: 30px; width: 30px"
+                  />
+                  <div class="mx-1 align-bottom">Carol</div>
+                </div>
+                <div class="mx-1 align-bottom">5.5 ★</div>
+              </div>
+              <!-- inspector self introduction -->
+              <div class="align-bottom">
+                This is Carol's self introduction...
+              </div>
+            </div>
+
+            <!-- Buttons container -->
+            <div class="d-flex flex-column gap-2 d-inline-flex w-auto">
+              <button class="btn btn-primary">More</button>
+              <button class="btn btn-success">Choose</button>
+            </div>
+          </div>
+        </div>
       </div>
-      <div class="d-flex flex-column mt-4 rounded-4 px-2 inspection-post">
-        <!-- inspection post -->
-        <div class="d-flex flex-column mx-1">
-          <!-- address -->
-          <h4> Address: 1234 Fake St. </h4>
-        </div>
-        <!-- room photo -->
-        <div class="d-flex flex-column">
-          <img src="./images/interior_inspection.png" alt="room" class="room-photo">
-        </div>
-        <div class="d-flex flex-column mx-1">
-          <!-- Requirements heading -->
-          <h4> Requirements</h4>
-        </div>
-        <!-- requirements text -->
-        <div>
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Mollitia quidem excepturi sed in praesentium
-          accusamus? Quam eligendi reprehenderit laborum commodi.
-        </div>
-      </div>
-      <div class="d-flex flex-column mt-4">
-        <!-- Inspectors applying heading-->
-        <div class="d-flex flex-column mx-1">
-          <h4> Inspectors applying </h4>
-        </div>
-
-        <!-- inspector application divs -->
-
-
-        <div class="d-flex flex-row rounded-2 justify-content-between p-2 mb-2" style="background-color: gray;">
-          <div class="d-flex flex-column w-auto mr-auto">
-            <!-- name, profile pic and stars -->
-            <div class="d-flex flex-row align-items-center mr-auto">
-              <div class="d-flex flex-row mx-2">
-                <img src="images/example_images/man.png" alt="profile pic" style="height: 30px; width: 30px;">
-                <div class="mx-1 align-bottom"> Alex </div>
-              </div>
-              <div class="mx-1 align-bottom">5.5 ★</div>
-            </div>
-            <!-- inspector self introduction -->
-            <div class="align-bottom"> This is Alex's self introduction... </div>
-          </div>
-
-          <!-- Buttons container -->
-          <div class="d-flex flex-column gap-2 d-inline-flex w-auto">
-            <button class="btn btn-primary"> More </button>
-            <button class="btn btn-success"> Choose </button>
-          </div>
-        </div>
-
-
-        <div class="d-flex flex-row rounded-2 justify-content-between p-2 mb-2" style="background-color: gray;">
-          <div class="d-flex flex-column w-auto mr-auto">
-            <!-- name, profile pic and stars -->
-            <div class="d-flex flex-row align-items-center mr-auto">
-              <div class="d-flex flex-row mx-2">
-                <img src="images/example_images/girl.png" alt="profile pic" style="height: 30px; width: 30px;">
-                <div class="mx-1 align-bottom"> Eve </div>
-              </div>
-              <div class="mx-1 align-bottom">7.2 ★</div>
-            </div>
-            <!-- inspector self introduction -->
-            <div class="align-bottom"> This is Eve's self introduction... </div>
-          </div>
-
-          <!-- Buttons container -->
-          <div class="d-flex flex-column gap-2 d-inline-flex w-auto">
-            <button class="btn btn-primary"> More </button>
-            <button class="btn btn-success"> Choose </button>
-          </div>
-        </div>
-
-
-        <div class="d-flex flex-row rounded-2 justify-content-between p-2 mb-2" style="background-color: gray;">
-          <div class="d-flex flex-column w-auto mr-auto">
-            <!-- name, profile pic and stars -->
-            <div class="d-flex flex-row align-items-center mr-auto">
-              <div class="d-flex flex-row mx-2">
-                <img src="images/example_images/man.png" alt="profile pic" style="height: 30px; width: 30px;">
-                <div class="mx-1 align-bottom"> Bob </div>
-              </div>
-              <div class="mx-1 align-bottom">5.0 ★</div>
-            </div>
-            <!-- inspector self introduction -->
-            <div class="align-bottom"> This is Bob's self introduction... </div>
-          </div>
-
-          <!-- Buttons container -->
-          <div class="d-flex flex-column gap-2 d-inline-flex w-auto">
-            <button class="btn btn-primary"> More </button>
-            <button class="btn btn-success"> Choose </button>
-          </div>
-        </div>
-
-
-        <div class="d-flex flex-row rounded-2 justify-content-between p-2 mb-2" style="background-color: gray;">
-          <div class="d-flex flex-column w-auto mr-auto">
-            <!-- name, profile pic and stars -->
-            <div class="d-flex flex-row align-items-center mr-auto">
-              <div class="d-flex flex-row mx-2">
-                <img src="images/example_images/girl2.png" alt="profile pic" style="height: 30px; width: 30px;">
-                <div class="mx-1 align-bottom"> Carol </div>
-              </div>
-              <div class="mx-1 align-bottom">5.5 ★</div>
-            </div>
-            <!-- inspector self introduction -->
-            <div class="align-bottom"> This is Carol's self introduction... </div>
-          </div>
-
-          <!-- Buttons container -->
-          <div class="d-flex flex-column gap-2 d-inline-flex w-auto">
-            <button class="btn btn-primary"> More </button>
-            <button class="btn btn-success"> Choose </button>
-          </div>
-        </div>
-
-
-
-
-      </div>
-    </div>
-  </main>
-
-  <!--This is the guide info-->
-  <!--End of guide info-->
-  <!-- Link to scripts -->
-  <script src="./scripts/menu.js"></script>
-  <script src="./scripts/firebaseAPI_DTC15.js"></script>
-  <script src="./scripts/skeleton.js"></script>
-</body>
-
+    </main>
+    <!--This is the bottom navbar-->
+    <nav
+      id="bottomNavbarPlaceholder"
+      class="navbar_bottom shadow-lg border-1"
+    ></nav>
+    <!--This is the guide info-->
+    <!--End of guide info-->
+    <!-- Link to scripts -->
+    <script src="./scripts/menu.js"></script>
+    <script src="./scripts/firebaseAPI_DTC15.js"></script>
+    <script src="./scripts/skeleton.js"></script>
+  </body>
 </html>
