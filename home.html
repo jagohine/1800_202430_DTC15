@@ -2,10 +2,12 @@
 <html lang="en">
 
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Home</title>
+  <title>RealRoom</title>
   <meta name="comp1800 template" content="My 1800 App" />
+
+  <!-- Required meta tags -->
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <!-- Bootstrap Library CSS CDN go here -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
@@ -25,259 +27,102 @@
   <link type="text/css" rel="stylesheet" href="https://www.gstatic.com/firebasejs/ui/4.8.1/firebase-ui-auth.css" />
   <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-storage.js"></script>
 
-  <!-- jquery -->
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
-
   <!-- Link to styles of your own -->
   <link rel="stylesheet" href="./styles/homepage.css" />
-  <style>
-    body,
-    html {
-      height: 100%;
-      margin: 0;
-      overflow-y: auto;
-    }
-
-    .body {
-      min-height: 100vh;
-      padding-bottom: 80px;
-      position: relative;
-      overflow-y: auto;
-    }
-
-    main {
-      flex: 1;
-      overflow-y: auto;
-      padding-bottom: 100px;
-    }
-
-    #bottom_menu_bar {
-      height: 80px;
-      background-color: #1D499B;
-    }
-
-    .container {
-      width: 100%;
-    }
-
-    .h-full {
-      height: 100%;
-    }
-
-    .h-auto {
-      height: auto;
-    }
-
-    .bg-danger {
-      background-color: #dc3545;
-    }
-
-    .bg-primary {
-      background-color: #1D499B;
-    }
-
-    .past-inspections-container {
-      max-height: 400px;
-      overflow-y: scroll;
-    }
-
-    #menu {
-      display: flex;
-      justify-content: center;
-      gap: 10px;
-      margin: 20px 0;
-    }
-
-    #menu button {
-      padding: 10px 20px;
-      border: none;
-      background-color: grey;
-      color: white;
-      cursor: pointer;
-      border-radius: 5px;
-      font-size: 16px;
-    }
-
-    #menu button:hover {
-      background-color: #0056b3;
-    }
-
-    .room-photo {
-      height: auto;
-      width: 100%;
-      background-color: transparent;
-    }
-
-    .inspection-post {
-      background-color: cornflowerblue;
-    }
-
-    .align-bottom {
-      margin-top: auto;
-    }
-  </style>
 </head>
 
-<body class="body">
+<body class="body" style="min-height: 100% container">
   <!--This is the navbar-->
   <nav id="topNavbarPlaceholder"></nav>
   <!--End of navbar-->
 
-  <!-- main section -->
-  <main class="container d-flex flex-column mx-2 align-items-center mx-auto mt-4" style="width: 100%;">
-    <div class="d-flex mx-2 flex-column mb-4" style="height: 40%; width: 100%; max-width: 500px;">
-      <div class="d-flex align-self-start w-100">
-        <h3 class="mb-2" style="font-weight: bold"> Waiting to be inspected </h3>
-      </div>
-      <div class="d-flex flex-column mt-4 rounded-4 px-2 inspection-post">
-        <!-- inspection post -->
-        <div class="d-flex flex-column mx-1">
-          <!-- address -->
-          <h4> Address: 1234 Fake St. </h4>
+  <div class="content banner-container d-flex flex-column align-items-center justify-content-center">
+    <!--This is the guide info-->
+    <div id="guideInfoPlaceholder" class="guide flex-column"></div>
+    <!--End of  guide info-->
+
+    <!--This is the ongoing inspection list, will be modularize after getting user json -->
+    <div class="content_inspection_list">
+      <h2 class="content_inspection_list_title">Ongoing inspections</h2>
+      <div class="card shadow border-0">
+        <img src="/images/interior_inspection.png" class="card-img-top card-image" alt="location of the ongoing item"
+          style="object-fit: cover" />
+        <div class="card-body d-flex flex-row align-items-center justify-content-between p-3">
+          <p class="card-title fw-semibold">555 Seymour Street</p>
+          <a href="#" class="btn btn-primary">Details</a>
         </div>
-        <!-- room photo -->
-        <div class="d-flex flex-column">
-          <img src="./images/interior_inspection.png" alt="room" class="room-photo">
-        </div>
-        <div class="d-flex flex-column mx-1">
-          <!-- Requirements heading -->
-          <h4> Requirements</h4>
-        </div>
-        <!-- requirements text -->
-        <div>
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Mollitia quidem excepturi sed in praesentium
-          accusamus? Quam eligendi reprehenderit laborum commodi.
-        </div>
-      </div>
-      <div class="d-flex flex-column mt-4">
-        <!-- Inspectors applying heading-->
-        <div class="d-flex flex-column mx-1">
-          <h4> Inspectors applying </h4>
-        </div>
-
-        <!-- inspector application divs -->
-
-
-        <div class="d-flex flex-row rounded-2 justify-content-between p-2 mb-2" style="background-color: gray;">
-          <div class="d-flex flex-column w-auto mr-auto">
-            <!-- name, profile pic and stars -->
-            <div class="d-flex flex-row align-items-center mr-auto">
-              <div class="d-flex flex-row mx-2">
-                <img src="images/example_images/man.png" alt="profile pic" style="height: 30px; width: 30px;">
-                <div class="mx-1 align-bottom"> Alex </div>
-              </div>
-              <div class="mx-1 align-bottom">5.5 ★</div>
-            </div>
-            <!-- inspector self introduction -->
-            <div class="align-bottom"> This is Alex's self introduction... </div>
-          </div>
-
-          <!-- Buttons container -->
-          <div class="d-flex flex-column gap-2 d-inline-flex w-auto">
-            <button class="btn btn-primary"> More </button>
-            <button class="btn btn-success"> Choose </button>
-          </div>
-        </div>
-
-
-        <div class="d-flex flex-row rounded-2 justify-content-between p-2 mb-2" style="background-color: gray;">
-          <div class="d-flex flex-column w-auto mr-auto">
-            <!-- name, profile pic and stars -->
-            <div class="d-flex flex-row align-items-center mr-auto">
-              <div class="d-flex flex-row mx-2">
-                <img src="images/example_images/girl.png" alt="profile pic" style="height: 30px; width: 30px;">
-                <div class="mx-1 align-bottom"> Eve </div>
-              </div>
-              <div class="mx-1 align-bottom">7.2 ★</div>
-            </div>
-            <!-- inspector self introduction -->
-            <div class="align-bottom"> This is Eve's self introduction... </div>
-          </div>
-
-          <!-- Buttons container -->
-          <div class="d-flex flex-column gap-2 d-inline-flex w-auto">
-            <button class="btn btn-primary"> More </button>
-            <button class="btn btn-success"> Choose </button>
-          </div>
-        </div>
-
-
-        <div class="d-flex flex-row rounded-2 justify-content-between p-2 mb-2" style="background-color: gray;">
-          <div class="d-flex flex-column w-auto mr-auto">
-            <!-- name, profile pic and stars -->
-            <div class="d-flex flex-row align-items-center mr-auto">
-              <div class="d-flex flex-row mx-2">
-                <img src="images/example_images/man.png" alt="profile pic" style="height: 30px; width: 30px;">
-                <div class="mx-1 align-bottom"> Bob </div>
-              </div>
-              <div class="mx-1 align-bottom">5.0 ★</div>
-            </div>
-            <!-- inspector self introduction -->
-            <div class="align-bottom"> This is Bob's self introduction... </div>
-          </div>
-
-          <!-- Buttons container -->
-          <div class="d-flex flex-column gap-2 d-inline-flex w-auto">
-            <button class="btn btn-primary"> More </button>
-            <button class="btn btn-success"> Choose </button>
-          </div>
-        </div>
-
-
-        <div class="d-flex flex-row rounded-2 justify-content-between p-2 mb-2" style="background-color: gray;">
-          <div class="d-flex flex-column w-auto mr-auto">
-            <!-- name, profile pic and stars -->
-            <div class="d-flex flex-row align-items-center mr-auto">
-              <div class="d-flex flex-row mx-2">
-                <img src="images/example_images/girl2.png" alt="profile pic" style="height: 30px; width: 30px;">
-                <div class="mx-1 align-bottom"> Carol </div>
-              </div>
-              <div class="mx-1 align-bottom">5.5 ★</div>
-            </div>
-            <!-- inspector self introduction -->
-            <div class="align-bottom"> This is Carol's self introduction... </div>
-          </div>
-
-          <!-- Buttons container -->
-          <div class="d-flex flex-column gap-2 d-inline-flex w-auto">
-            <button class="btn btn-primary"> More </button>
-            <button class="btn btn-success"> Choose </button>
-          </div>
-        </div>
-
-
-
-
       </div>
     </div>
-  </main>
+    </div>
+    <!--End of ongoing inspection list-->
 
-  <!--This is the guide info-->
-  <!--End of guide info-->
+    <!-- Start of past inspection list -->
+    <div class="content banner-container d-flex flex-column align-items-center justify-content-center">
+      <div class="content_inspection_list">
+        <h2 class="content_inspection_list_title">Past inspections</h2>
 
-  <!-- Bottom menu bar -->
-  <div id="bottom_menu_bar" class="d-flex flex-row w-100 fixed-bottom align-content-center justify-content-between"
-    style="height: 10%; background-color: #1D499B;">
-    <button id="home_button"
-      style="height: 80px; width: 80px; background-color: #1D499B; border: none; box-shadow: none;">
-      <img src="./images/icons/home.svg" alt="Home" style="height: 100%; width: 100%; background-color: transparent;">
-    </button>
-    <button id="message_button"
-      style="height: 80px; width: 80px; background-color: #1D499B; border: none; box-shadow: none;">
-      <img src="./images/icons/messages.svg" alt="Message"
-        style="height: 100%; width: 100%; background-color: transparent;">
-    </button>
-    <button id="notifications_button"
-      style="height: 80px; width: 80px; background-color: #1D499B; border: none; box-shadow: none;">
-      <img src="./images/icons/notifications.svg" alt="Notification"
-        style="height: 100%; width: 100%; background-color: transparent;">
-    </button>
+        <!--  Start past inspection -->
+        <div class="card shadow border-0">
+          <img src="/images/example_images/apartment1.jpg" class="card-img-top card-image" alt="location of the ongoing item"
+            style="object-fit: cover" />
+          <div class="card-body d-flex flex-row align-items-center justify-content-between p-3">
+            <p class="card-title fw-semibold">123 Main Street</p>
+            <a href="#" class="btn btn-primary">Details</a>
+          </div>
+        </div>
+        <!-- End of past inspection -->
+
+        <!--  Start past inspection -->
+        <div class="card shadow border-0">
+          <img src="/images/example_images/apartment2.webp" class="card-img-top card-image" alt="location of the ongoing item"
+            style="object-fit: cover" />
+          <div class="card-body d-flex flex-row align-items-center justify-content-between p-3">
+            <p class="card-title fw-semibold">789 Elm Street</p>
+            <a href="#" class="btn btn-primary">Details</a>
+          </div>
+        </div>
+
+        <!--  Start past inspection -->
+        <div class="card shadow border-0">
+          <img src="/images/example_images/apartment3.jpeg" class="card-img-top card-image" alt="location of the ongoing item"
+            style="object-fit: cover" />
+          <div class="card-body d-flex flex-row align-items-center justify-content-between p-3">
+            <p class="card-title fw-semibold">555 Seymour Street</p>
+            <a href="#" class="btn btn-primary">Details</a>
+          </div>
+        </div>
+        <!-- End of past inspection -->
+
+        <!--  Start past inspection -->
+        <div class="card shadow border-0">
+          <img src="/images/example_images/apartment4.jpeg" class="card-img-top card-image" alt="location of the ongoing item"
+            style="object-fit: cover" />
+          <div class="card-body d-flex flex-row align-items-center justify-content-between p-3">
+            <p class="card-title fw-semibold">555 Seymour Street</p>
+            <a href="#" class="btn btn-primary">Details</a>
+          </div>
+        </div>
+        <!-- End of past inspection -->
+
+
+
+      </div>
+
+
+    </div>
+
+
+    <!---------our web content here (create post, inspection list, etc.)--------->
   </div>
 
-  <!-- Link to scripts -->
-  <script src="./scripts/menu.js"></script>
-  <script src="./scripts/firebaseAPI_DTC15.js"></script>
-  <script src="./scripts/skeleton.js"></script>
+  <!--This is the bottom navbar-->
+  <nav id="bottomNavbarPlaceholder" class="navbar_bottom shadow-lg border-1"></nav>
 </body>
+
+<!-- Link to scripts -->
+<script src="./scripts/script.js"></script>
+<script src="./scripts/firebaseAPI_DTC15.js"></script>
+<script src="./scripts/skeleton.js"></script>
+<script src="./scripts/main.js"></script>
 
 </html>
