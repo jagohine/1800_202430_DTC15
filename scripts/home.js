@@ -106,3 +106,5 @@ function writeInspectionDetails() {
         completion_date: firebase.firestore.Timestamp.fromDate(new Date("May 27, 2023"))
     });
 }
+
+writeInspectionDetails()
