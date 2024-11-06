@@ -79,15 +79,9 @@
     max-width: 768px;
     margin: 0 auto;
 }
-.content_inspection_list{
-    padding-top:3rem;
-    padding-bottom: 3rem;
-}
+
 .content_inspection_list_title{
     padding-bottom: 1rem;
-}
-.card-img{
-    object-fit: cover;
 }
 .btn-primary{
     background-color: #1D499B;
@@ -118,31 +112,12 @@
 
     object-fit: cover
 }
-.card{
-    width: 36rem;
-}
-.card-image{
-    height: 12rem;
-}
-.card_title {
-    font-size: 16px;
-    font-weight: 700;
-}
-.guide_arrow{
-    opacity: 0.5; 
-    margin-left: 18rem;
-}
-.guide_text{
-    font-size: 1.5rem;
+
+.createNewForm{
+    padding-top: 6rem;
+    padding-bottom: 3rem;
 }
 
-.addBtn{
-    width: 100px;
-    z-index: 10;
-    position: fixed;
-    bottom: 100px;
-    right: 100px;
-}
 
 @media screen and (max-width: 425px) {
     .content {
@@ -179,6 +154,12 @@
 }
 
 @media only screen and (max-width: 768px) and (min-width: 425px) {
+    .content {
+        padding-left: 3rem;
+        padding-right: 3rem;
+        margin: 0 auto;
+        width: 100%;
+    }
 
     .navbar {
         flex-direction: column;
@@ -212,9 +193,7 @@
         padding-right: 6rem;
         margin: 0 auto;
     }
-    .card {
-        width: 22rem;
-    }
+
     .guide_arrow {
         opacity: 0.5;
         margin-left: 12rem;
@@ -223,17 +202,27 @@
         font-size: 1.25rem;
         text-align: center;
     }
+    .form-control{
+        width: 100%;
+    }
 }
 
 
 
-@media screen and (min-width: 900px) {
+@media screen and (min-width: 768px) {
     #slogan-br {
         display: none;
     }
     .addBtn {
         right: 20%;
     }
+    .content {
+        padding-left: 3rem;
+        padding-right: 3rem;
+        margin: 0 auto;
+        width: 100%;
+    }
+    
 }
 
 .btn-get-started {
