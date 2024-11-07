@@ -50,21 +50,21 @@
                 <div class="col-md-6">
                   <div class="mb-3">
                     <label class="form-label fw-bold">Inspector Name</label>
-                    <div class="border rounded p-2" id="inspectorName"></div>
+                    <div class="border rounded p-2" id="inspector_name"></div>
                   </div>
                   <div class="mb-3">
                     <label class="form-label fw-bold">Property Address</label>
-                    <div class="border rounded p-2" id="propertyAddress"></div>
+                    <div class="border rounded p-2" id="room_address"></div>
                   </div>
                 </div>
                 <div class="col-md-6">
                   <div class="mb-3">
                     <label class="form-label fw-bold">Inspection Post Creation Date</label>
-                    <div class="border rounded p-2" id="inspectionDate"></div>
+                    <div class="border rounded p-2" id="inspectionCreationDate"></div>
                   </div>
                   <div class="mb-3">
                     <label class="form-label fw-bold">Inspection Completion Date</label>
-                    <div class="border rounded p-2" id="inspectionDate"></div>
+                    <div class="border rounded p-2" id="inspectionCompletionDate"></div>
                   </div>
                 </div>
               </div>
@@ -75,47 +75,44 @@
                 <div class="row">
                   <div class="col-md-4">
                     <div class="form-check">
-                      <input class="form-check-input" type="checkbox">
-                      <label id="fast_internet_checkbox" class="form-check-label">Fast internet?</label>
+                      <input id="fast_internet_checkbox" class="form-check-input" type="checkbox">
+                      <label class="form-check-label">Fast internet?</label>
                     </div>
                     <div class="form-check">
-                      <input class="form-check-input" type="checkbox">
-                      <label id="quiet_checkbox" class="form-check-label">Quiet?</label>
+                      <input id="quiet_room_checkbox" class="form-check-input" type="checkbox">
+                      <label class="form-check-label">Quiet?</label>
                     </div>
                   </div>
                   <div class="col-md-4">
                     <div class="form-check">
-                      <input class="form-check-input" type="checkbox">
-                      <label id="clean_checkbox" class="form-check-label">Clean?</label>
+                      <input id="clean_room_checkbox" class="form-check-input" type="checkbox">
+                      <label class="form-check-label">Clean room?</label>
                     </div>
                  </div>
                   <div class="col-md-4">
                     <div class="form-check">
-                      <input class="form-check-input" type="checkbox">
-                      <label id="hot_shower_checkbox" class="form-check-label">Hot shower?</label>
+                      <input id="clean_kitchen_checkbox" class="form-check-input" type="checkbox">
+                      <label class="form-check-label">Clean kitchen?</label>
+                    </div>
+                 </div>
+                  <div class="col-md-4">
+                    <div class="form-check">
+                      <input id="hot_shower_checkbox" class="form-check-input" type="checkbox">
+                      <label class="form-check-label">Hot shower?</label>
                     </div>
                  </div>
                 </div>
               </div>
             </div>
             <div class="mb-4">
-              <label class="form-label fw-bold">Overall Condition</label>
-              <div class="border rounded p-2">
-                <div class="d-flex align-items-center">
-                  <span class="badge" style="background-color: #204c9c;"></span>
-                  <small id="overall_condition_menu" class="text-muted ms-2">(Selected from: Excellent, Good, Fair, Poor)</small>
-                </div>
-              </div>
-            </div>
+           </div>
             <div class="mb-3">
               <label class="form-label fw-bold">General Inpsection Instructions</label>
-              <div id="general_inspection_instructions" class="border rounded p-3" id="inspectorNotes" style="min-height: 100px;">
+              <div id="general_inspection_instructions" class="border rounded p-3" style="min-height: 100px;">
               </div>
-
-
               <div class="mb-3">
-                <label id="inspector_notes" class="form-label fw-bold">Inspector's Notes</label>
-                <div class="border rounded p-3" id="inspectorNotes" style="min-height: 100px;">
+                <label  class="form-label fw-bold">Inspector's Notes</label>
+                <div id="general_inspector_notes" class="border rounded p-3"  style="min-height: 100px;">
                 </div>
               </div>
             </div>
@@ -128,11 +125,12 @@
 </body>
 
 <!-- Link to scripts -->
-<script src="./scripts/script.js"></script>
 <script src="./scripts/firebaseAPI_RealRoom.js"></script>
 <script src="./scripts/skeleton.js"></script>
 <script src="./scripts/main.js"></script>
 <script src="./scripts/home.js"></script>
 <script src="./scripts/rate.js"></script>
+<script src="./scripts/script.js"></script>
+<script src="./scripts/inspection_details_template_example.js"></script>
 
 </html>
