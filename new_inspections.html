@@ -74,7 +74,7 @@
             <label for="inputNumber" class="form-label"
               >Phone number of Landlord</label
             >
-            <input type="number" class="form-control" id="inputCity" />
+            <input type="number" class="form-control" id="inputNumber" />
           </div>
         </div>
 
@@ -134,7 +134,13 @@
 
         <div class="text-sm-end">
           <button class="btn btn-secondary">Cancel</button>
-          <button type="submit" class="btn btn-primary">Submit!</button>
+          <button
+            type="submit"
+            class="btn btn-primary"
+            onclick="createInspection()"
+          >
+            Submit!
+          </button>
         </div>
       </form>
     </div>
@@ -150,4 +156,5 @@
   <script src="./scripts/skeleton.js"></script>
   <script src="./scripts/main.js"></script>
   <script src="./scripts/rate.js"></script>
+  <script src="./scripts/new_inspections.js"></script>
 </html>

@@ -3,8 +3,8 @@ function displayFinishedInspectionInfo(collection) {
     .get()
     .then((allPosts) => {
       allPosts.forEach((doc) => {
-        console.log(doc.data().inspection_rating);
-        console.log("get!");
+        // console.log(doc.data().inspection_rating);
+        // console.log("get!");
       });
     });
   (error) => {
