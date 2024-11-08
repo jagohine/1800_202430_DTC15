@@ -1,4 +1,5 @@
-function createInspection() {
+function createInspection(event) {
+  event.preventDefault();
   console.log("inside form");
   let inputAddress = document.getElementById("inputAddress").value;
   let inputCity = document.getElementById("inputCity").value;
@@ -30,15 +31,24 @@ function createInspection() {
     var currentUser = db.collection("users").doc(user.uid);
     var userID = user.uid;
 
-    db.collection("create_inspection").add({
-      userID: userID,
-      address: inputAddress,
-      city: inputCity,
-      contact: inputNumber,
-      checkbox: checkboxesStatus,
-      extraRequest: extraInformation,
-      timestamp: firebase.firestore.FieldValue.serverTimestamp(),
-    });
+    db.collection("create_inspection")
+      .add({
+        userID: userID,
+        address: inputAddress,
+        city: inputCity,
+        contact: inputNumber,
+        checkbox: checkboxesStatus,
+        extraRequest: extraInformation,
+        timestamp: firebase.firestore.FieldValue.serverTimestamp(),
+      })
+      .then(() => {
+        alert("Your request has been submitted!");
+        window.location.href = "home.html";
+      })
+      .catch((error) => {
+        console.error("Error writing document: ", error);
+        alert("There was an error submitting your request. Please try again.");
+      });
   } else {
     console.log("No user is signed in");
   }
