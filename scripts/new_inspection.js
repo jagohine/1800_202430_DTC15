@@ -17,14 +17,14 @@ function createInspection(event) {
     }
   }
 
-  let extraInformation = document.getElementById("extraInformation").value;
+  let extraRequest = document.getElementById("extraRequest").value;
 
   console.log(
     inputAddress,
     inputCity,
     inputNumber,
     inputLink,
-    extraInformation,
+    extraRequest,
     checkboxesStatus
   );
 
@@ -33,7 +33,7 @@ function createInspection(event) {
     var currentUser = db.collection("users").doc(user.uid);
     var userID = user.uid;
 
-    db.collection("create_inspection")
+    db.collection("inspections")
       .add({
         userID: userID,
         address: inputAddress,
@@ -41,7 +41,7 @@ function createInspection(event) {
         contact: inputNumber,
         link: inputLink,
         checkbox: checkboxesStatus,
-        extraRequest: extraInformation,
+        extraRequest: extraRequest,
         timestamp: firebase.firestore.FieldValue.serverTimestamp(),
       })
       .then(() => {

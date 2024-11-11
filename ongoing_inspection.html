@@ -49,7 +49,7 @@
       class="content banner-container d-flex flex-column align-items-center justify-content-center"
     >
       <form class="createNewForm row g-2" onSubmit="createInspection(event)">
-        <h2>Create your request</h2>
+        <h2>Waiting for Inspection ...</h2>
         <div class="section pt-4 pb-4">
           <h5>Basic Information</h5>
 
@@ -61,8 +61,8 @@
               type="text"
               class="form-control"
               id="inputAddress"
-              placeholder="No.Apt, 1234 Main St, "
-              required
+              value=""
+              disabled
             />
           </div>
 
@@ -72,8 +72,8 @@
               type="text"
               class="form-control"
               id="inputCity"
-              placeholder="Vancouver"
-              required
+              value=""
+              disabled
             />
           </div>
 
@@ -85,8 +85,8 @@
               type="number"
               class="form-control"
               id="inputNumber"
-              placeholder="6081231234"
-              required
+              value=""
+              disabled
             />
           </div>
 
@@ -99,6 +99,7 @@
               class="form-control"
               id="inputLink"
               placeholder="Provide the room ad link for a more detailed review"
+              disabled
             />
           </div>
         </div>
@@ -107,26 +108,51 @@
         <div class="section pt-2 pb-2">
           <h5>what do you want us to check for you?</h5>
           <div class="form-check">
-            <input class="form-check-input" type="checkbox" id="bedroom" />
+            <input
+              class="form-check-input"
+              type="checkbox"
+              id="bedroom"
+              disabled
+            />
             <label class="form-check-label" for="bedroom"> Bedroom </label>
           </div>
           <div class="form-check">
-            <input class="form-check-input" type="checkbox" id="bathroom" />
+            <input
+              class="form-check-input"
+              type="checkbox"
+              id="bathroom"
+              disabled
+            />
             <label class="form-check-label" for="bathroom"> Bathroom </label>
           </div>
           <div class="form-check">
-            <input class="form-check-input" type="checkbox" id="kitchen" />
+            <input
+              class="form-check-input"
+              type="checkbox"
+              id="kitchen"
+              disabled
+            />
             <label class="form-check-label" for="kitchen"> Kitchen </label>
           </div>
           <div class="form-check">
-            <input class="form-check-input" type="checkbox" id="livingRoom" />
+            <input
+              class="form-check-input"
+              type="checkbox"
+              id="livingRoom"
+              disabled
+            />
             <label class="form-check-label" for="livingRoom">
               Living Room
             </label>
           </div>
           <br />
           <div class="form-check">
-            <input class="form-check-input" type="checkbox" id="washerDryer" />
+            <input
+              class="form-check-input"
+              type="checkbox"
+              id="washerDryer"
+              disabled
+            />
             <label class="form-check-label" for="washerDryer">
               Washer/Dryer
             </label>
@@ -135,20 +161,31 @@
             <input
               class="form-check-input"
               type="checkbox"
-              id="internetConnection"
+              id="internet_connection"
+              disabled
             />
-            <label class="form-check-label" for="internetConnection">
+            <label class="form-check-label" for="internet_connection">
               Internet Connection
             </label>
           </div>
           <div class="form-check">
-            <input class="form-check-input" type="checkbox" id="acHeater" />
+            <input
+              class="form-check-input"
+              type="checkbox"
+              id="acHeater"
+              disabled
+            />
             <label class="form-check-label" for="acHeater">
               Air conditioning/ Heater
             </label>
           </div>
           <div class="form-check">
-            <input class="form-check-input" type="checkbox" id="parking" />
+            <input
+              class="form-check-input"
+              type="checkbox"
+              id="parking"
+              disabled
+            />
             <label class="form-check-label" for="parking"> Parking </label>
           </div>
 
@@ -157,6 +194,7 @@
               class="form-check-input"
               type="checkbox"
               id="publicTransit"
+              disabled
             />
             <label class="form-check-label" for="publicTransit">
               Public Transit
@@ -167,17 +205,28 @@
               class="form-check-input"
               type="checkbox"
               id="neighbourhoodSafety"
+              disabled
             />
             <label class="form-check-label" for="neighbourhoodSafety">
               Neighbourhood Safety
             </label>
           </div>
           <div class="form-check">
-            <input class="form-check-input" type="checkbox" id="roommates" />
+            <input
+              class="form-check-input"
+              type="checkbox"
+              id="roommates"
+              disabled
+            />
             <label class="form-check-label" for="roommates"> Roommates </label>
           </div>
           <div class="form-check">
-            <input class="form-check-input" type="checkbox" id="petFriendly" />
+            <input
+              class="form-check-input"
+              type="checkbox"
+              id="petFriendly"
+              disabled
+            />
             <label class="form-check-label" for="petFriendly">
               Pet Friendly
             </label>
@@ -193,14 +242,15 @@
               class="form-control"
               id="extraRequest"
               rows="5"
-              placeholder="What about a photo of the stove?"
+              value=""
+              disabled
             ></textarea>
           </div>
         </div>
 
         <div class="text-sm-end">
-          <button class="btn btn-secondary">Cancel</button>
-          <button type="submit" class="btn btn-primary">Submit!</button>
+          <button class="btn btn-primary">Back</button>
+          <!-- <button type="submit" class="btn btn-primary">Submit!</button> -->
         </div>
       </form>
     </div>
@@ -215,5 +265,5 @@
   <script src="./scripts/firebaseAPI_RealRoom.js"></script>
   <script src="./scripts/skeleton.js"></script>
   <script src="./scripts/main.js"></script>
-  <script src="./scripts/new_inspection.js"></script>
+  <script src="./scripts/ongoing_inspection.js"></script>
 </html>
