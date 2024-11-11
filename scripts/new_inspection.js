@@ -4,6 +4,7 @@ function createInspection(event) {
   let inputAddress = document.getElementById("inputAddress").value;
   let inputCity = document.getElementById("inputCity").value;
   let inputNumber = document.getElementById("inputNumber").value;
+  let inputLink = document.getElementById("inputNumber").value;
 
   let checkboxes = document.querySelectorAll(".form-check-input");
   let checkboxesStatus = {};
@@ -22,6 +23,7 @@ function createInspection(event) {
     inputAddress,
     inputCity,
     inputNumber,
+    inputLink,
     extraInformation,
     checkboxesStatus
   );
@@ -37,6 +39,7 @@ function createInspection(event) {
         address: inputAddress,
         city: inputCity,
         contact: inputNumber,
+        link: inputLink,
         checkbox: checkboxesStatus,
         extraRequest: extraInformation,
         timestamp: firebase.firestore.FieldValue.serverTimestamp(),

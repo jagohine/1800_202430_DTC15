@@ -48,7 +48,7 @@
     <div
       class="content banner-container d-flex flex-column align-items-center justify-content-center"
     >
-      <form class="createNewForm row g-2">
+      <form class="createNewForm row g-2" onSubmit="createInspection(event)">
         <h2>Create your request</h2>
         <div class="section pt-4 pb-4">
           <h5>Basic Information</h5>
@@ -68,13 +68,38 @@
 
           <div class="col-12 pt-2">
             <label for="inputCity" class="form-label">City</label>
-            <input type="text" class="form-control" id="inputCity" />
+            <input
+              type="text"
+              class="form-control"
+              id="inputCity"
+              placeholder="Vancouver"
+              required
+            />
           </div>
+
           <div class="col-12 pt-2">
             <label for="inputNumber" class="form-label"
               >Phone number of Landlord</label
             >
-            <input type="number" class="form-control" id="inputNumber" />
+            <input
+              type="number"
+              class="form-control"
+              id="inputNumber"
+              placeholder="6081231234"
+              required
+            />
+          </div>
+
+          <div class="col-12 pt-2">
+            <label for="inputLink" class="form-label"
+              >Room advertisement link (optional)</label
+            >
+            <input
+              type="text"
+              class="form-control"
+              id="inputLink"
+              placeholder="Provide the room ad link for a more detailed review"
+            />
           </div>
         </div>
 
@@ -82,39 +107,79 @@
         <div class="section pt-2 pb-2">
           <h5>what do you want us to check for you?</h5>
           <div class="form-check">
-            <input class="form-check-input" type="checkbox" id="safety" />
-            <label class="form-check-label" for="safety"> safety </label>
+            <input class="form-check-input" type="checkbox" id="bedroom" />
+            <label class="form-check-label" for="bedroom"> Bedroom </label>
           </div>
           <div class="form-check">
-            <input class="form-check-input" type="checkbox" id="validation" />
-            <label class="form-check-label" for="validation">
-              Validation
+            <input class="form-check-input" type="checkbox" id="bathroom" />
+            <label class="form-check-label" for="bathroom"> Bathroom </label>
+          </div>
+          <div class="form-check">
+            <input class="form-check-input" type="checkbox" id="kitchen" />
+            <label class="form-check-label" for="kitchen"> Kitchen </label>
+          </div>
+          <div class="form-check">
+            <input class="form-check-input" type="checkbox" id="livingRoom" />
+            <label class="form-check-label" for="livingRoom">
+              Living Room
+            </label>
+          </div>
+          <br />
+          <div class="form-check">
+            <input class="form-check-input" type="checkbox" id="washerDryer" />
+            <label class="form-check-label" for="washerDryer">
+              Washer/Dryer
             </label>
           </div>
           <div class="form-check">
-            <input class="form-check-input" type="checkbox" id="traffic" />
-            <label class="form-check-label" for="traffic"> Traffic </label>
-          </div>
-          <div class="form-check">
-            <input class="form-check-input" type="checkbox" id="clean" />
-            <label class="form-check-label" for="chean"> Clean </label>
-          </div>
-          <div class="form-check">
-            <input class="form-check-input" type="checkbox" id="shower" />
-            <label class="form-check-label" for="shower"> Shower </label>
-          </div>
-          <div class="form-check">
-            <input class="form-check-input" type="checkbox" id="equipment" />
-            <label class="form-check-label" for="equipment"> Equipment </label>
-          </div>
-          <div class="form-check">
-            <input class="form-check-input" type="checkbox" id="quite" />
-            <label class="form-check-label" for="quite"> Quite </label>
-          </div>
-          <div class="form-check">
-            <input class="form-check-input" type="checkbox" id="Internet" />
-            <label class="form-check-label" for="Internet">
+            <input
+              class="form-check-input"
+              type="checkbox"
+              id="internet_connection"
+            />
+            <label class="form-check-label" for="internetConnection">
               Internet Connection
+            </label>
+          </div>
+          <div class="form-check">
+            <input class="form-check-input" type="checkbox" id="acHeater" />
+            <label class="form-check-label" for="acHeater">
+              Air conditioning/ Heater
+            </label>
+          </div>
+          <div class="form-check">
+            <input class="form-check-input" type="checkbox" id="parking" />
+            <label class="form-check-label" for="parking"> Parking </label>
+          </div>
+
+          <div class="form-check">
+            <input
+              class="form-check-input"
+              type="checkbox"
+              id="publicTransit"
+            />
+            <label class="form-check-label" for="publicTransit">
+              Public Transit
+            </label>
+          </div>
+          <div class="form-check">
+            <input
+              class="form-check-input"
+              type="checkbox"
+              id="neighbourhoodSafety"
+            />
+            <label class="form-check-label" for="neighbourhoodSafety">
+              Neighbourhood Safety
+            </label>
+          </div>
+          <div class="form-check">
+            <input class="form-check-input" type="checkbox" id="roommates" />
+            <label class="form-check-label" for="roommates"> Roommates </label>
+          </div>
+          <div class="form-check">
+            <input class="form-check-input" type="checkbox" id="petFriendly" />
+            <label class="form-check-label" for="petFriendly">
+              Pet Friendly
             </label>
           </div>
         </div>
@@ -128,19 +193,14 @@
               class="form-control"
               id="extraInformation"
               rows="3"
+              placeholder="What about a photo of the stove?"
             ></textarea>
           </div>
         </div>
 
         <div class="text-sm-end">
           <button class="btn btn-secondary">Cancel</button>
-          <button
-            type="submit"
-            class="btn btn-primary"
-            onclick="createInspection(event)"
-          >
-            Submit!
-          </button>
+          <button type="submit" class="btn btn-primary">Submit!</button>
         </div>
       </form>
     </div>
