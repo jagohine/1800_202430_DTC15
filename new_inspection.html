@@ -76,6 +76,16 @@
               required
             />
           </div>
+          <div class="col-12 pt-2">
+            <label for="inputProvince" class="form-label">Province</label>
+            <input
+              type="text"
+              class="form-control"
+              id="inputProvince"
+              placeholder="BC"
+              required
+            />
+          </div>
 
           <div class="col-12 pt-2">
             <label for="inputNumber" class="form-label"
@@ -199,7 +209,12 @@
         </div>
 
         <div class="text-sm-end">
-          <button class="btn btn-secondary">Cancel</button>
+          <button
+            class="btn btn-secondary"
+            onclick="window.location.href = 'home.html'"
+          >
+            Cancel
+          </button>
           <button type="submit" class="btn btn-primary">Submit!</button>
         </div>
       </form>

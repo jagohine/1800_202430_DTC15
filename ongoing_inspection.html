@@ -78,6 +78,17 @@
           </div>
 
           <div class="col-12 pt-2">
+            <label for="inputProvince" class="form-label">Province</label>
+            <input
+              type="text"
+              class="form-control"
+              id="inputProvince"
+              value=""
+              disabled
+            />
+          </div>
+
+          <div class="col-12 pt-2">
             <label for="inputNumber" class="form-label"
               >Phone number of Landlord</label
             >
@@ -161,10 +172,10 @@
             <input
               class="form-check-input"
               type="checkbox"
-              id="internet_connection"
+              id="internetConnection"
               disabled
             />
-            <label class="form-check-label" for="internet_connection">
+            <label class="form-check-label" for="internetConnection">
               Internet Connection
             </label>
           </div>
@@ -241,7 +252,7 @@
             <textarea
               class="form-control"
               id="extraRequest"
-              rows="5"
+              rows="10"
               value=""
               disabled
             ></textarea>
@@ -249,7 +260,12 @@
         </div>
 
         <div class="text-sm-end">
-          <button class="btn btn-primary">Back</button>
+          <button
+            class="btn btn-primary"
+            onclick="window.location.href = 'home.html'"
+          >
+            Back
+          </button>
           <!-- <button type="submit" class="btn btn-primary">Submit!</button> -->
         </div>
       </form>

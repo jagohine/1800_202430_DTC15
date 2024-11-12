@@ -1,7 +1,7 @@
 function OngoingInspection() {
   // let params = new URL(window.location.href);
   // will be replaced by url
-  let ID = "52stOgyL1OcxFp0BnReR";
+  let ID = "Fds6lqokYvjqxCiItQws";
   console.log(ID);
 
   db.collection("inspections")
@@ -12,6 +12,7 @@ function OngoingInspection() {
       thisPost = doc.data();
       inputAddress = doc.data().address;
       inputCity = doc.data().city;
+      inputProvince = doc.data().province;
       inputNumber = doc.data().contact;
       inputLink = doc.data().link;
       checkbox = doc.data().checkbox;
@@ -29,6 +30,7 @@ function populateOngoingInspection() {
   document.getElementById("inputAddress").value = inputAddress;
   document.getElementById("inputCity").value = inputCity;
   document.getElementById("inputNumber").value = inputNumber;
+  document.getElementById("inputProvince").value = inputProvince;
 
   // inputLink is not a required input
   if (inputLink) {
@@ -41,8 +43,10 @@ function populateOngoingInspection() {
   document.getElementById("extraRequest").value = extraRequest;
   Object.keys(checkbox).forEach((key) => {
     let checkboxElement = document.getElementById(key);
-    if (checkbox[key] == "checked") {
+    if (checkbox[key] === "checked") {
       checkboxElement.checked = checkbox[key] === "checked";
+    } else {
+      console.log(`Checkbox with ID "${key}" not checked`);
     }
   });
 }

@@ -3,6 +3,7 @@ function createInspection(event) {
   console.log("inside form");
   let inputAddress = document.getElementById("inputAddress").value;
   let inputCity = document.getElementById("inputCity").value;
+  let inputProvince = document.getElementById("inputProvince").value;
   let inputNumber = document.getElementById("inputNumber").value;
   let inputLink = document.getElementById("inputNumber").value;
 
@@ -19,14 +20,15 @@ function createInspection(event) {
 
   let extraRequest = document.getElementById("extraRequest").value;
 
-  console.log(
-    inputAddress,
-    inputCity,
-    inputNumber,
-    inputLink,
-    extraRequest,
-    checkboxesStatus
-  );
+  // console.log(
+  //   inputAddress,
+  //   inputCity,
+  //   inputNumber,
+  //   inputLink,
+  //   extraRequest,
+  //   checkboxesStatus,
+  //   inputProvince
+  // );
 
   var user = firebase.auth().currentUser;
   if (user) {
@@ -38,6 +40,7 @@ function createInspection(event) {
         userID: userID,
         address: inputAddress,
         city: inputCity,
+        province: inputProvince,
         contact: inputNumber,
         link: inputLink,
         checkbox: checkboxesStatus,
