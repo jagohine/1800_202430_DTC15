@@ -98,6 +98,20 @@ async function test() {
         if (value != 'unchecked') {
         addInspectionDetailToPage(fieldToLabel(key), value);
         };});
+    
+    inspectionCreationDate = document.getElementById('inspectionCreationDate');
+    inspectionCompletionDate = document.getElementById('inspectionCompletionDate');
+    inspectionAddress = document.getElementById('inspectionAddress');
+    inspectorName = document.getElementById('inspectorName');
+    inspectionCreationDate.textContent = post.inspectionCreationDate.toDate();
+    inspectionCompletionDate.textContent = post.inspectionCompletionDate.toDate();
+    inspectionAddress.textContent = post.address;
+    inspectorName.textContent = post.inspector.name;
+    inspectorRef = await post.inspector.get();
+    inspectorData = inspectorRef.data();
+    console.log("INSPECTOR NAME: ", inspectorData.name);
+    inspectorName.textContent = inspectorData.name;
+
 }
 
 test();
