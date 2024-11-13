@@ -12,3 +12,20 @@ function getInspectorAdress(id) {
 }
 
 getInspectorAdress(id)
+
+// Function for star reviews
+ const stars = document.querySelectorAll('.star');
+
+ stars.forEach((star, index) => {
+    star.addEventListener('click', () => {
+        for (let i = 0; i <= index; i++) {
+            document.getElementById(`star${i + 1}`).textContent = 'star';
+        }
+    });
+ });
+
+ // Function to enable user to write reviews:
+ function writeReview() {
+    console.log("inside write review");
+    
+ }
