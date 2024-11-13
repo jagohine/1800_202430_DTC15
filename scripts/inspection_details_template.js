@@ -116,6 +116,7 @@ async function test() {
 
 test();
 
+// Get inspectionDocID from URL and store in browser's local storage
 function saveInspectionDocIDAndRedirect() {
     let params = new URL(window.location.href)
     let ID = params.searchParams.get("docID");
