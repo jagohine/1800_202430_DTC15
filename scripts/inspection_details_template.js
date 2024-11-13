@@ -116,3 +116,9 @@ async function test() {
 
 test();
 
+function saveInspectionDocIDAndRedirect() {
+    let params = new URL(window.location.href)
+    let ID = params.searchParams.get("docID");
+    localStorage.setItem('inspectionDocID', ID);
+    window.location.href = 'review.html'
+}
