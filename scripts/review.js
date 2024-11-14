@@ -26,7 +26,7 @@ function getInspectonAddress(id) {
 }
 getInspectonAddress(id)
 
- // Function to enable user to write reviews:
+ // Function to enable user to write reviews and add to "reviews" collection in Firestore:
  function writeReview() {
     console.log("inside write review");
     const stars = document.querySelectorAll('.star');
