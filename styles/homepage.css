@@ -51,7 +51,7 @@ p{
     
 }
 
-#navbar_link{
+.navbar_link{
     display: flex;
     flex-direction: column;
     width: 60px;
@@ -248,7 +248,7 @@ p{
     .addBtn {
         right: 20%;
     }
-        #navbar_link {
+        .navbar_link {
             display: flex;
             flex-direction: column;
             width: 60px;
