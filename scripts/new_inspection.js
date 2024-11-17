@@ -5,7 +5,7 @@ function createInspection(event) {
   let inputCity = document.getElementById("inputCity").value;
   let inputProvince = document.getElementById("inputProvince").value;
   let inputNumber = document.getElementById("inputNumber").value;
-  let inputLink = document.getElementById("inputNumber").value;
+  let inputLink = document.getElementById("inputLink").value;
 
   let checkboxes = document.querySelectorAll(".form-check-input");
   let checkboxesStatus = {};
