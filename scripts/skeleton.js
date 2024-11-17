@@ -22,3 +22,25 @@ function loadSkeleton() {
   });
 }
 loadSkeleton(); //invoke the function
+
+function displayNavbarHighlight() {
+  let params = new URL(window.location.href);
+  let pageNow = params.href;
+  console.log(params);
+  console.log(pageNow);
+  if (pageNow.includes("home")) {
+    const iconNow = document.getElementById("homeBtn");
+    if (iconNow) {
+      iconNow.classList.add("filterIcon");
+    }
+  }
+  if (pageNow.includes("archive")) {
+    const iconNow = document.getElementById("archiveBtn");
+    if (iconNow) {
+      iconNow.classList.add("filterIcon");
+    }
+  }
+}
+setTimeout(() => {
+  displayNavbarHighlight();
+}, 500);

@@ -91,13 +91,14 @@ p{
 }
 .content{
     max-width: 768px;
-    margin: 0 auto;
+    /* margin: 0 auto; */
 }
 .content_inspection_list{
     padding-top:3rem;
 }
 .content_inspection_list_title{
     padding-bottom: 1rem;
+    text-align: left !important;
 }
 .card-img{
     object-fit: cover;
@@ -269,6 +270,6 @@ p{
     cursor: pointer;
 }
 
-#homeBtn{
+.filterIcon{
     filter: invert(60%) sepia(41%) saturate(6716%) hue-rotate(163deg) brightness(96%) contrast(102%);
 }
