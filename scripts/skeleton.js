@@ -17,6 +17,7 @@ function loadSkeleton() {
       console.log(
         $("#topNavbarPlaceholder").load("./text/top_nav_before_login.html")
       );
+      console.log($("#bottomNavbarPlaceholder").load("./text/bottom_nav.html"));
     }
   });
 }

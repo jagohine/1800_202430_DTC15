@@ -4,7 +4,10 @@
 * Light blue (Secondary): #00A7E1
 * Dark brown (Accent):  #52025A
 */
-
+p{
+    padding: 0;
+    margin: 0;
+}
 .body{
     min-height: 100vh !important;
 }
@@ -48,9 +51,20 @@
     
 }
 
+#navbar_link{
+    display: flex;
+    flex-direction: column;
+    width: 60px;
+    align-items: center;
+    text-decoration: none;
+    color:#7a7a7a;
+    font-size:12px;
+}
+
 .navbar_bottom_container{
     width: 540px;
     margin: 0 auto;
+    padding: 0px;
 }
 .navbar-toggler {
     background-color: #ffffff;
@@ -81,7 +95,6 @@
 }
 .content_inspection_list{
     padding-top:3rem;
-    padding-bottom: 3rem;
 }
 .content_inspection_list_title{
     padding-bottom: 1rem;
@@ -174,7 +187,8 @@
         text-align: center;
     }
     .addBtn{
-        right: 40px;
+        right: 0px;
+        bottom: 60px;
     }
 }
 
@@ -234,6 +248,15 @@
     .addBtn {
         right: 20%;
     }
+        #navbar_link {
+            display: flex;
+            flex-direction: column;
+            width: 60px;
+            align-items: center;
+            text-decoration: none;
+            color: #7a7a7a;
+            font-size: 14px;
+        }
 }
 
 .btn-get-started {
