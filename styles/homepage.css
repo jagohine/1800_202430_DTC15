@@ -268,3 +268,7 @@ p{
 .material-icons {
     cursor: pointer;
 }
+
+#homeBtn{
+    filter: invert(60%) sepia(41%) saturate(6716%) hue-rotate(163deg) brightness(96%) contrast(102%);
+}
