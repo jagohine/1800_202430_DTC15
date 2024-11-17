@@ -144,12 +144,16 @@ p{
 }
 .guide_arrow{
     opacity: 0.5; 
-    margin-left: 18rem;
+    margin-left: 70%;
 }
 .guide_text{
     font-size: 1.5rem;
+    text-align: center;
 }
-
+#guideInfoPlaceholder{
+    width: 100%;
+    margin: 0 auto;
+}
 .addBtn{
     width: 100px;
     z-index: 10;
@@ -232,7 +236,7 @@ p{
     }
     .guide_arrow {
         opacity: 0.5;
-        margin-left: 12rem;
+        margin-left: 50%;
     }    
     .guide_text{
         font-size: 1.25rem;
@@ -272,4 +276,8 @@ p{
 
 .filterIcon{
     filter: invert(60%) sepia(41%) saturate(6716%) hue-rotate(163deg) brightness(96%) contrast(102%);
+}
+
+.hideTitle{
+    display: none;
 }

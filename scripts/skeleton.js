@@ -23,6 +23,7 @@ function loadSkeleton() {
 }
 loadSkeleton(); //invoke the function
 
+// highlight current location on bottom navbar
 function displayNavbarHighlight() {
   let params = new URL(window.location.href);
   let pageNow = params.href;
@@ -44,3 +45,41 @@ function displayNavbarHighlight() {
 setTimeout(() => {
   displayNavbarHighlight();
 }, 500);
+
+// if user does not have any inspection post, render the guide and hide the list on home page
+function newUserGuide() {
+  firebase.auth().onAuthStateChanged(function (user) {
+    if (user) {
+      console.log("USER ID: ", user.uid);
+
+      let params = new URL(window.location.href);
+      let pageNow = params.href;
+      if (pageNow.includes("home")) {
+        db.collection("inspections")
+          .where("userID", "==", user.uid)
+          .get()
+          .then((documents) => {
+            if (documents.empty) {
+              console.log("no post for the user");
+              console.log($("#guideInfoPlaceholder").load("./text/guide.html"));
+              let ongoingList = document.getElementById("ongoing_inspections");
+              if (ongoingList) {
+                ongoingList.classList.add("hideTitle");
+              }
+              let pastList = document.getElementById("past_inspections");
+              if (pastList) {
+                pastList.classList.add("hideTitle");
+              }
+            }
+          })
+          .catch((error) => {
+            console.log("Error fetching inspections:", error);
+          });
+      }
+    } else {
+      console.log("No user is logged in.");
+    }
+  });
+}
+
+newUserGuide();
