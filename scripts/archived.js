@@ -17,15 +17,14 @@ firebase.auth().onAuthStateChanged((user) => {
 
         function getOngoingInspectionPosts() {
             const userID = user.uid;
-            const ongoingInpectionsDiv = document.getElementById('ongoing_inspections');
-            const pastInpectionsDiv = document.getElementById('past_inspections');
+            const archivedInpectionsDiv = document.getElementById('archived_inspection_list');
 
             db.collection("inspections")
-                .where('userID', "==", userID) // Query inspections for the logged-in user
+                .where('userID', "==", userID) 
                 .get()
                 .then((documents) => {
                     documents.forEach((doc) => {
-                        const data = doc.data(); // Get document data
+                        const data = doc.data(); 
                         const address = data.address;
                         const completionDate = data.inspectionCompletionDate;
                         const archived_status = data.archived;
@@ -37,13 +36,9 @@ firebase.auth().onAuthStateChanged((user) => {
                             "#"
                         );
 
-                        if (completionDate && (!archived_status)) {
-                            pastInpectionsDiv.appendChild(temporaryDiv);
+                        if (completionDate && (archived_status)) {
+                            archivedInpectionsDiv.appendChild(temporaryDiv);
                         }
-                        else {
-                            ongoingInpectionsDiv.appendChild(temporaryDiv);
-                        }
-
                     });
                 })
                 .catch((error) => {
@@ -54,6 +49,5 @@ firebase.auth().onAuthStateChanged((user) => {
         getOngoingInspectionPosts();
     } else {
         console.log("No user is signed in");
-        // Redirect to login or handle unauthenticated state here
     }
 });
