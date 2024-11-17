@@ -163,7 +163,7 @@ p{
     z-index: 10;
     position: fixed;
     bottom: 100px;
-    right: 100px;
+    right: 60px;
 }
 
 @media screen and (max-width: 425px) {
@@ -261,7 +261,7 @@ p{
         display: none;
     }
     .addBtn {
-        right: 20%;
+        right: 10%;
     }
         .navbar_link {
             display: flex;
