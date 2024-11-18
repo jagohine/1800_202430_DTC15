@@ -18,7 +18,7 @@ function goToInspection(inspectionPostIDTag) {
   // set a cookie (expires in a minute)
   setCookie("inspectionPostID", inspectionPostID);
   // go to the inspection details page
-  window.location.href = "inspection_details.html";
+  window.location.href = "inspection_details.html?inspectionPostID=" + inspectionPostID;
 }
 
 firebase.auth().onAuthStateChanged((user) => {
