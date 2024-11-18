@@ -1,6 +1,6 @@
 function setCookie(name, value, sameSite = "Lax") {
   const date = new Date();
-  date.setTime(date.getTime() + 60 * 1000); // set the expiry date to a minute from now
+  date.setTime(date.getTime() +  24 * 60 * 60 * 1000); // set the expiry date to a day from now
   const expires = `expires=${date.toUTCString()}`;
   document.cookie = `${name}=${value}; ${expires}; path=/; SameSite=Lax`;
   console.log(
