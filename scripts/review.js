@@ -1,5 +1,5 @@
 // Function to populate the correct address to the review form
-var inspectionDocID = localStorage.getItem("inspectionDocID");
+var inspectionPostID = localStorage.getItem("inspectionPostID");
 
 // Function for star reviews
 const stars = document.querySelectorAll('.star');
@@ -26,14 +26,14 @@ function getInspectonAddress(id) {
 }
 getInspectonAddress(id)
 
- // Function to enable user to write reviews and add to "reviews" collection in Firestore:
- function writeReview() {
+// Function to enable user to write reviews and add to "reviews" collection in Firestore:
+function writeReview() {
     console.log("inside write review");
     const stars = document.querySelectorAll('.star');
     let Rating = 0;
     stars.forEach((star) => {
         if (star.textContent === 'star') {
-            Rating ++;
+            Rating++;
         }
     });
 
@@ -47,19 +47,24 @@ getInspectonAddress(id)
         var currentUser = db.collection("users").doc(user.uid);
         var userID = user.uid;
         db.collection("reviews").add({
-            inspectionDocID: inspectionDocID,
-            userID : userID,
+            inspectionPostID: inspectionPostID,
+            userID: userID,
             rating: Rating,
             timeliness: timeLiness,
             accuracy: accuRacy,
             friendliness: friendLiness,
             feedback: additionalFeedback,
             timestamp: firebase.firestore.FieldValue.serverTimestamp()
-        }).then(() => {
+        }).then((reviewReference) => {
+            // set update the inspection post to store a reference to the review
+            console.log("inspectionPostID: ", inspectionPostID);
+            var inspectionPost = db.collection("inspections").doc(inspectionPostID);
+            inspectionPost.update({ review: reviewReference });
+            // go to the thank you page
             window.location.href = "thanks.html";
         });
     } else {
         console.log("No user is signed in");
         window.location.href = 'review.html';
     }
- }
+}

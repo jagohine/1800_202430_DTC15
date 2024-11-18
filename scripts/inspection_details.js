@@ -109,27 +109,40 @@ async function test() {
   });
 
   inspectionCreationDate = document.getElementById("inspectionCreationDate");
-  inspectionCompletionDate = document.getElementById(
-    "inspectionCompletionDate"
+  inspectionCompletionDateDiv = document.getElementById(
+    "inspectionCompletionDateDiv"
   );
   inspectionAddress = document.getElementById("inspectionAddress");
   inspectorName = document.getElementById("inspectorName");
   inspectionCreationDate.textContent = post.inspectionCreationDate.toDate();
-  inspectionCompletionDate.textContent = post.inspectionCompletionDate.toDate();
-  inspectionAddress.textContent = post.address;
-  inspectorName.textContent = post.inspector.name;
-  inspectorRef = await post.inspector.get();
-  inspectorData = inspectorRef.data();
-  console.log("INSPECTOR NAME: ", inspectorData.name);
-  inspectorName.textContent = inspectorData.name;
 
+  if (inspectionCompletionDateDiv && post.inspectionCompletionDate) {
+    function produceInspectionCompletionDateHTML(date) {
+      return `<label class="form-label fw-bold">Inspection Completion Date</label><div
+    class="border rounded p-2" id="inspectionCompletionDate">${date}</div>`;
+    }
+    inspectionCompletionDateDiv.innerHTML = produceInspectionCompletionDateHTML(post.inspectionCompletionDate.toDate());
+  }
+  if (post.address) {
+    inspectionAddress.textContent = post.address;
+  }
+  if (post.inspector) {
+    inspectorRef = await post.inspector.get();
+    inspectorData = inspectorRef.data();
+    if (inspectorData) {
+      if (post.inspector) {
+        if (post.inspector.name) {
+          inspectorName.textContent = post.inspector.name;
+          console.log("INSPECTOR NAME: ", inspectorData.name);
+        }
+      }
+    }
+  }
 
   // only display review and archive buttons where it makes sense
 
   // set up the buttons we'll need
   // log some stuff for debugging
-  console.log("Completion Date:", post.inspectionCompletionDate);
-  console.log("Review Status:", post.review);
 
   const reviewButton = document.createElement("button");
   reviewButton.textContent = "Leave a Review";
@@ -146,20 +159,28 @@ async function test() {
   if (post.inspectionCompletionDate) {
     console.log("Inspection date's here!: ", post.inspectionCompletionDate.toDate())
     archiveAndReviewDiv.appendChild(archiveIcon);
-      if (post.archived){
-        archiveIcon.classList.add("colorChanged");
-      }
-      else{
-        archiveIcon.classList.remove("colorInit");
-      }
- 
+    if (post.archived) {
+      archiveIcon.classList.add("colorChanged");
+    }
+    else {
+      archiveIcon.classList.remove("colorInit");
+    }
+
     if (!post.review) {
       console.log("This hasn't been reviewed yet!")
       archiveAndReviewDiv.appendChild(reviewButton);
     }
-  }
+    else {
+      // log the review user ID for debugging purposes
+      const reviewReference = post.review;
+      reviewReference.get().then((reviewSnapshot) => {
+        console.log("This post has been reviewed. Review userID: ", reviewSnapshot.data().userID);
+      });
+    }
 
+  }
 }
+
 
 test();
 
