@@ -9,22 +9,19 @@ var uiConfig = {
                     name: user.displayName,
                     email: user.email,
                     city: "Vancouver",
-                    country: "Canada",
-                }). then(function() {
-                    console.log("New user added to firestore");
-                    window.location.assign("main.html");
+                    country: "Canada"
+                }).then(function() {
+                        console.log("New user added to firestore");
+                        window.location.assign("main.html");
                 }).catch(function(error) {
-                    console.log("Error adding new user: " + error);
+                        console.log("Error adding new user: " + error);
                 });
+                
             } else {
                 return true;
-            }
-                return false;     
-        },
-        uiShown: function () {
-            
-            document.getElementById('loader').style.display = 'none';
-        }
+            }   
+                return false;
+            },
     },
 
     
