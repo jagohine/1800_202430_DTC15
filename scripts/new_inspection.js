@@ -47,6 +47,7 @@ function createInspection(event) {
         extraRequest: extraRequest,
         timestamp: firebase.firestore.FieldValue.serverTimestamp(),
         inspectionCreationDate: firebase.firestore.FieldValue.serverTimestamp(),
+        inspectionCompletionDate: null
       })
       .then(() => {
         alert("Your request has been submitted!");
