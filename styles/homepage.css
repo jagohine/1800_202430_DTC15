@@ -291,3 +291,14 @@ p{
 .hideTitle{
     display: none;
 }
+
+.colorInit{
+    color: #929292;
+}
+.colorChanged {
+    color: #1D499B;
+}
+
+.archiveIcon {
+    font-size: 2rem;
+}
