@@ -8,19 +8,6 @@ async function getInspectionPost(inspectionPostId, collection) {
       console.log("Inspection post data:", docSnap.data());
 
       // get archive status and change archive button color
-      const postData = docSnap.data();
-      if (postData.archived) {
-        document.getElementById("archiveIcon").classList.add("colorChanged");
-        document
-          .getElementById("archiveIcon")
-          .setAttribute("archiveStatus", "1");
-      } else {
-        document.getElementById("archiveIcon").classList.add("colorInit");
-        document
-          .getElementById("archiveIcon")
-          .setAttribute("archiveStatus", "0");
-      }
-
       return docSnap.data();
     } else {
       console.log("No such document exists!");
@@ -106,7 +93,6 @@ async function test() {
   const inspectionPostID = getCookie("inspectionPostID");
   console.log("inspectionPostID: ", inspectionPostID);
 
-  // inspection post id hardcoded for demo purposes. in the future it will be passed as a parameter
   const collection = "inspections";
 
   // Read inspection post info
@@ -136,6 +122,47 @@ async function test() {
   inspectorData = inspectorRef.data();
   console.log("INSPECTOR NAME: ", inspectorData.name);
   inspectorName.textContent = inspectorData.name;
+
+
+  // only display review and archive buttons where it makes sense
+
+  // set up the buttons we'll need
+  // log some stuff for debugging
+  console.log("Completion Date:", post.inspectionCompletionDate);
+  console.log("Review Status:", post.review);
+
+  const reviewButton = document.createElement("button");
+  reviewButton.textContent = "Leave a Review";
+  reviewButton.className = "btn btn-primary bottom-0 end-0 m-3";
+  reviewButton.onclick = saveInspectionDocIDAndRedirect;
+
+  const archiveIcon = document.createElement("i");
+  archiveIcon.textContent = "archive";
+  archiveIcon.id = "archiveIcon";
+  archiveIcon.className = "material-icons archiveIcon align-self-center";
+  archiveIcon.onclick = saveArchive;
+
+  // Append buttons if it makes sense
+  if (post.inspectionCompletionDate) {
+    console.log("Inspection date's here!: ", post.inspectionCompletionDate.toDate())
+    archiveAndReviewDiv.appendChild(archiveIcon);
+      if (post.archived){
+        archiveIcon.classList.add("colorChanged");
+      }
+      else{
+        archiveIcon.classList.remove("colorInit");
+      }
+ 
+    if (!post.review) {
+      console.log("This hasn't been reviewed yet!")
+      archiveAndReviewDiv.appendChild(reviewButton);
+    }
+  }
+
+
+
+  // 
+
 }
 
 test();
@@ -150,30 +177,41 @@ function saveInspectionDocIDAndRedirect() {
 
 // update archive status and write to database
 async function saveArchive() {
-  const inspectionPostID = getCookie("inspectionPostID");
-  console.log(inspectionPostID);
-
-  let archiveStatus = document
-    .getElementById("archiveIcon")
-    .getAttribute("archiveStatus");
-  if (archiveStatus == 0) {
-    document.getElementById("archiveIcon").classList.remove("colorInit");
-    document.getElementById("archiveIcon").classList.add("colorChanged");
-    archiveStatus = 1;
-    document.getElementById("archiveIcon").setAttribute("archiveStatus", "1");
-  } else {
-    document.getElementById("archiveIcon").classList.remove("colorChanged");
-    document.getElementById("archiveIcon").classList.add("colorInit");
-    archiveStatus = 0;
-    document.getElementById("archiveIcon").setAttribute("archiveStatus", "0");
+  try {
+    // try to get the get the inspection post ID from a cookie
+    const inspectionPostID = getCookie("inspectionPostID");
+    console.log("Inspection Post ID:", inspectionPostID);
+    // get the post reference from the inspection post ID
+    const docRef = db.collection("inspections").doc(inspectionPostID);
+    // get the document from firestore 
+    const inspectionDoc = await docRef.get();
+    // check to see the document actually exists
+    if (!inspectionDoc.exists) {
+      console.error("Error: the requested post does not exist");
+      return;
+    }
+    // get the data from the document
+    const currentData = inspectionDoc.data();
+    // has this inspection been archived?
+    const archiveStatus = currentData.archived || false; // default value is false
+    console.log("Current archive status:", archiveStatus);
+    // flip the archive status
+    const newArchiveStatus = !archiveStatus;
+    // update the document with the new archive status
+    await docRef.update({ archived: newArchiveStatus });
+    console.log("Archive status updated to:", newArchiveStatus);
+    // double check that we updated correctly, for logging/debugging
+    const updatedDocSnap = await docRef.get();
+    const updatedData = updatedDocSnap.data();
+    console.log("Verified updated archive status:", updatedData.archived);
+    // set the archiveIcon accordingly
+    const archiveIcon = document.getElementById("archiveIcon");
+    if (newArchiveStatus) {
+      window.location.href = "home.html";
+    } else {
+      window.location.href = "archive.html";
+    }
+  } catch (error) {
+    console.error("Error updating archive status:", error);
   }
-  const currentDoc = db.collection("inspections").doc(inspectionPostID);
-  currentDoc
-    .update({ archived: archiveStatus == 0 ? false : true })
-    .then(function () {
-      //   console.log("archived updated " + (archiveStatus == 0 ? false : true));
-    })
-    .catch(function (error) {
-      //   console.error("archived update error", error);
-    });
 }

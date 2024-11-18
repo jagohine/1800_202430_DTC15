@@ -100,21 +100,7 @@
               <div class="mb-4">
                 <div class="mb-4">
                   <div id="dynamic-content" class="rounded p-3"></div>
-                  <div class="d-flex flex-row">
-                    <button
-                      class="btn btn-primary bottom-0 end-0 m-3"
-                      onclick="saveInspectionDocIDAndRedirect()"
-                    >
-                      Leave a Review
-                    </button>
-                    <i
-                      id="archiveIcon"
-                      class="material-icons archiveIcon align-self-center"
-                      onclick="saveArchive()"
-                    >
-                      archive
-                    </i>
-                  </div>
+                  <div id="archiveAndReviewDiv" class="d-flex flex-row"></div>
                 </div>
               </div>
             </div>
@@ -132,7 +118,6 @@
   <script src="./scripts/script.js"></script>
   <script src="./scripts/firebaseAPI_RealRoom.js"></script>
   <script src="./scripts/skeleton.js"></script>
-  <script src="./scripts/main.js"></script>
   <script src="./scripts/rate.js"></script>
   <script src="./scripts/inspection_details.js"></script>
 </html>
