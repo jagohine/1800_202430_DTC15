@@ -121,7 +121,9 @@ async function test() {
       return `<label class="form-label fw-bold">Inspection Completion Date</label><div
     class="border rounded p-2" id="inspectionCompletionDate">${date}</div>`;
     }
-    inspectionCompletionDateDiv.innerHTML = produceInspectionCompletionDateHTML(post.inspectionCompletionDate.toDate());
+    inspectionCompletionDateDiv.innerHTML = produceInspectionCompletionDateHTML(
+      post.inspectionCompletionDate.toDate()
+    );
   }
   if (post.address) {
     inspectionAddress.textContent = post.address;
@@ -152,35 +154,37 @@ async function test() {
   const archiveIcon = document.createElement("i");
   archiveIcon.textContent = "archive";
   archiveIcon.id = "archiveIcon";
-  archiveIcon.className = "material-icons archiveIcon align-self-center";
+  archiveIcon.className = "material-icons archiveIcon align-self-center ml-4";
   archiveIcon.onclick = saveArchive;
 
   // Append buttons if it makes sense
   if (post.inspectionCompletionDate) {
-    console.log("Inspection date's here!: ", post.inspectionCompletionDate.toDate())
+    console.log(
+      "Inspection date's here!: ",
+      post.inspectionCompletionDate.toDate()
+    );
     archiveAndReviewDiv.appendChild(archiveIcon);
     if (post.archived) {
       archiveIcon.classList.add("colorChanged");
-    }
-    else {
+    } else {
       archiveIcon.classList.remove("colorInit");
     }
 
     if (!post.review) {
-      console.log("This hasn't been reviewed yet!")
+      console.log("This hasn't been reviewed yet!");
       archiveAndReviewDiv.appendChild(reviewButton);
-    }
-    else {
+    } else {
       // log the review user ID for debugging purposes
       const reviewReference = post.review;
       reviewReference.get().then((reviewSnapshot) => {
-        console.log("This post has been reviewed. Review userID: ", reviewSnapshot.data().userID);
+        console.log(
+          "This post has been reviewed. Review userID: ",
+          reviewSnapshot.data().userID
+        );
       });
     }
-
   }
 }
-
 
 test();
 
@@ -200,7 +204,7 @@ async function saveArchive() {
     console.log("Inspection Post ID:", inspectionPostID);
     // get the post reference from the inspection post ID
     const docRef = db.collection("inspections").doc(inspectionPostID);
-    // get the document from firestore 
+    // get the document from firestore
     const inspectionDoc = await docRef.get();
     // check to see the document actually exists
     if (!inspectionDoc.exists) {
@@ -217,6 +221,11 @@ async function saveArchive() {
     // update the document with the new archive status
     await docRef.update({ archived: newArchiveStatus });
     console.log("Archive status updated to:", newArchiveStatus);
+    if (newArchiveStatus) {
+      alert("Successfully archived!");
+    } else {
+      alert("Archive removed!");
+    }
     // double check that we updated correctly, for logging/debugging
     const updatedDocSnap = await docRef.get();
     const updatedData = updatedDocSnap.data();
