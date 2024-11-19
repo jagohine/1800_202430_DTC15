@@ -302,4 +302,4 @@ function populateReviews() {
     console.error("Error fetching reviews:", error);
     });
 }
-document.addEventListener("DOMContentLoaded", populateReviews);
+populateReviews();
