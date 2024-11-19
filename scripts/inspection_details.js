@@ -56,6 +56,9 @@ function fieldToLabel(field) {
     case "acHeater":
       return "AC/Heater";
       break;
+    case "extraRequest":
+      return "Extra Requirement";
+      break;
     default:
       return "ERROR: Field not found";
   }
@@ -107,6 +110,10 @@ async function test() {
       addInspectionDetailToPage(fieldToLabel(key), value);
     }
   });
+  if (post.extraRequest) {
+    addInspectionDetailToPage(fieldToLabel("extraRequest"), post.extraRequest);
+    console.log(post.extraRequest);
+  }
 
   inspectionCreationDate = document.getElementById("inspectionCreationDate");
   inspectionCompletionDateDiv = document.getElementById(
@@ -233,9 +240,9 @@ async function saveArchive() {
     // set the archiveIcon accordingly
     const archiveIcon = document.getElementById("archiveIcon");
     if (newArchiveStatus) {
-      window.location.href = "home.html";
-    } else {
       window.location.href = "archive.html";
+    } else {
+      window.location.href = "home.html";
     }
   } catch (error) {
     console.error("Error updating archive status:", error);
@@ -272,20 +279,31 @@ function populateReviews() {
         var timeliness = doc.data().timeliness;
         var accuracy = doc.data().accuracy;
         var friendliness = doc.data().friendliness;
-        var feedback = doc.data().feedback || "No additional feedback provided.";
+        var feedback =
+          doc.data().feedback || "No additional feedback provided.";
         var time = doc.data().timestamp.toDate();
         var rating = doc.data().rating;
-        
-        console.log(rating)
+
+        console.log(rating);
         console.log(time);
-        
+
         let reviewCard = inspectionCardTemplate.content.cloneNode(true);
 
-        reviewCard.querySelector(".overall").innerHTML = `<b>Overall rating:</b>`;
-        reviewCard.querySelector(".timeliness").innerHTML = `<b>Inspector's timeliness:</b> ${timeliness}`;
-        reviewCard.querySelector(".accuracy").innerHTML = `<b>Inspector's info accuracy:</b> ${accuracy}`;
-        reviewCard.querySelector(".friendliness").innerHTML = `<b>Inspector's timeliness:</b> ${friendliness}`;
-        reviewCard.querySelector(".feedback").innerHTML = `<b>Additional feedback:</b> ${feedback}`;
+        reviewCard.querySelector(
+          ".overall"
+        ).innerHTML = `<b>Overall rating:</b>`;
+        reviewCard.querySelector(
+          ".timeliness"
+        ).innerHTML = `<b>Inspector's timeliness:</b> ${timeliness}`;
+        reviewCard.querySelector(
+          ".accuracy"
+        ).innerHTML = `<b>Inspector's info accuracy:</b> ${accuracy}`;
+        reviewCard.querySelector(
+          ".friendliness"
+        ).innerHTML = `<b>Inspector's timeliness:</b> ${friendliness}`;
+        reviewCard.querySelector(
+          ".feedback"
+        ).innerHTML = `<b>Additional feedback:</b> ${feedback}`;
 
         let starRating = "";
         for (let i = 0; i < rating; i++) {
@@ -299,7 +317,7 @@ function populateReviews() {
       });
     })
     .catch((error) => {
-    console.error("Error fetching reviews:", error);
+      console.error("Error fetching reviews:", error);
     });
 }
 populateReviews();
