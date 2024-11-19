@@ -281,10 +281,11 @@ function populateReviews() {
         
         let reviewCard = inspectionCardTemplate.content.cloneNode(true);
 
-        reviewCard.querySelector(".timeliness").innerHTML = `Inspector's timeliness: ${timeliness}`;
-        reviewCard.querySelector(".accuracy").innerHTML = `Inspector's info accuracy: ${accuracy}`;
-        reviewCard.querySelector(".friendliness").innerHTML = `Inspector's timeliness: ${friendliness}`;
-        reviewCard.querySelector(".feedback").innerHTML = `Additional feedback: ${feedback}`;
+        reviewCard.querySelector(".overall").innerHTML = `<b>Overall rating:</b>`;
+        reviewCard.querySelector(".timeliness").innerHTML = `<b>Inspector's timeliness:</b> ${timeliness}`;
+        reviewCard.querySelector(".accuracy").innerHTML = `<b>Inspector's info accuracy:</b> ${accuracy}`;
+        reviewCard.querySelector(".friendliness").innerHTML = `<b>Inspector's timeliness:</b> ${friendliness}`;
+        reviewCard.querySelector(".feedback").innerHTML = `<b>Additional feedback:</b> ${feedback}`;
 
         let starRating = "";
         for (let i = 0; i < rating; i++) {
