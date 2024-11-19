@@ -301,5 +301,17 @@ p{
 
 .archiveIcon {
     font-size: 2rem;
+<<<<<<< HEAD
     margin-left: 1rem;
+=======
+}
+
+.card-container {
+    max-height: 350px;
+}
+
+.card {
+    width: 100%;
+    margin: 10%;
+>>>>>>> 30b4977 (Add JS function to populate reviews)
 }

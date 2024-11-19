@@ -241,3 +241,48 @@ async function saveArchive() {
     console.error("Error updating archive status:", error);
   }
 }
+
+function populateReviews() {
+  console.log("test");
+  let inspectionCardTemplate = document.getElementById("reviewCardTemplate");
+  let inspectionCardGroup = document.getElementById("reviewCardGroup");
+
+  let params = new URL(window.location.href);
+  let inspectionID = params.searchParams.get("inspectionPostID");
+
+  db.collection("reviews")
+    .where("inspectionPostID", "==", inspectionID)
+    .get()
+    .then((allReviews) => {
+      reviews = allReviews.docs;
+      console.log(reviews);
+      reviews.forEach((doc) => {
+        var timeliness = doc.data().timeliness;
+        var accuracy = doc.data().accuracy;
+        var friendliness = doc.data().friendliness;
+        var time = doc.data().timestamp.toDate();
+        var rating = doc.data().rating;
+        
+        console.log(rating)
+        console.log(time);
+        
+        let reviewCard = inspectionCardTemplate.content.cloneNode(true);
+
+        reviewCard.querySelector(".timeliness").innerHTML = `Inspector's timeliness: ${timeliness}`;
+        reviewCard.querySelector(".accuracy").innerHTML = `Inspector's info accuracy: ${accuracy}`;
+        reviewCard.querySelector(".friendliness").innerHTML = `Inspector's timeliness: ${friendliness}`;
+        reviewCard.querySelector(".feedback").innerHTML = `Additional feedback: ${feedback}`;
+
+        let starRating = "";
+        for (let i = 0; i < rating; i++) {
+          starRating += '<span class="material-icons">star</span>';
+        }
+        for (let i = rating; i < 5; i++) {
+          starRating += '<span class="material-icons">star_outline</span>';
+        }
+        reviewCard.querySelector(".star-rating").innerHTML = starRating;
+        inspectionCardGroup.appendChild(reviewCard);
+      })
+    })
+}
+populateReviews();

@@ -97,10 +97,30 @@
                   </div>
                 </div>
               </div>
-              <div class="mb-4">
-                <div class="mb-4">
+              <div class="mb-2">
+                <div class="mb-2">
                   <div id="dynamic-content" class="rounded p-3"></div>
                   <div id="archiveAndReviewDiv" class="d-flex flex-row"></div>
+                </div>
+              </div>
+              <div class="container">
+                <p class = "fw-bold mb-2">Review on inspector:</p>
+                <div id="details-go-here"></div>
+                <div class="card-container">
+                  <div id="reviewCardGroup">
+                    <template id="reviewCardTemplate">
+                      <div class="card bg-light">
+                        <div class="card-body bg-light">
+                          <p class="star-rating"></p>
+                          <p class="timeliness">placeholder</p>
+                          <p class="accuracy">placeholder</p>
+                          <p class="friendliness">placeholder</p>
+                          <br>
+                          <p class="feedback">This card holds additional feedback.</p>
+                        </div>
+                      </div>
+                    </template>
+                  </div>
                 </div>
               </div>
             </div>
@@ -108,6 +128,7 @@
         </div>
       </div>
     </div>
+    
     <nav
       id="bottomNavbarPlaceholder"
       class="navbar_bottom shadow-lg border-1"
