@@ -249,17 +249,30 @@ function populateReviews() {
 
   let params = new URL(window.location.href);
   let inspectionID = params.searchParams.get("inspectionPostID");
+  console.log("Inspection ID from URL:", inspectionID);
+
+  if (!inspectionID) {
+    console.error("No inspection ID found in URL.");
+    return;
+  }
 
   db.collection("reviews")
     .where("inspectionPostID", "==", inspectionID)
     .get()
     .then((allReviews) => {
+      if (allReviews.empty) {
+        console.warn("No reviews found for inspectionPostID:", inspectionID);
+        return;
+      }
+
       reviews = allReviews.docs;
       console.log(reviews);
+
       reviews.forEach((doc) => {
         var timeliness = doc.data().timeliness;
         var accuracy = doc.data().accuracy;
         var friendliness = doc.data().friendliness;
+        var feedback = doc.data().feedback || "No additional feedback provided.";
         var time = doc.data().timestamp.toDate();
         var rating = doc.data().rating;
         
@@ -282,7 +295,10 @@ function populateReviews() {
         }
         reviewCard.querySelector(".star-rating").innerHTML = starRating;
         inspectionCardGroup.appendChild(reviewCard);
-      })
+      });
     })
+    .catch((error) => {
+    console.error("Error fetching reviews:", error);
+    });
 }
-populateReviews();
+document.addEventListener("DOMContentLoaded", populateReviews);
