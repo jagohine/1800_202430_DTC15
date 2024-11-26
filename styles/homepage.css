@@ -184,10 +184,11 @@ p{
     width: 100%;
     background-color:#00A7E1;
     border-radius: 0.25rem;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
 }
-.add_inspection_bar_icon{
-    align-self:center;
-}
+
 
 @media screen and (max-width: 425px) {
     .content {
@@ -227,6 +228,9 @@ p{
     }
     .support_column{
         flex-direction: column;
+    }
+    .add_inspection_section {
+        width: 300px;
     }
 }
 
@@ -280,6 +284,19 @@ p{
     }
     .support_column{
         flex-direction: column;
+    }
+    .add_inspection_section {
+        width: 352px;
+    }
+    .add_inspection_bar {
+        margin-top: 0.5rem;
+        padding: 0.25rem;
+        width: 100%;
+        background-color: #00A7E1;
+        border-radius: 0.25rem;
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
     }
 }
 
