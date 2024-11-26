@@ -33,6 +33,12 @@ firebase.auth().onAuthStateChanged((user) => {
         "images/example_images/apartment2.webp",
         "images/example_images/apartment3.jpeg",
         "images/example_images/apartment4.jpeg",
+        "images/example_images/apartment5.jpg",
+        "images/example_images/apartment6.jpg",
+        "images/example_images/apartment7.jpg",
+        "images/example_images/apartment8.jpg",
+        "images/example_images/apartment9.jpg",
+        "images/example_images/apartment10.jpg",
         "/images/interior_inspection.png"
       ];
 
