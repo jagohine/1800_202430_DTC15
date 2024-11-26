@@ -48,7 +48,6 @@ function newUserGuide() {
   firebase.auth().onAuthStateChanged(function (user) {
     if (user) {
       console.log("USER ID: ", user.uid);
-
       let params = new URL(window.location.href);
       let pageNow = params.href;
       if (pageNow.includes("home")) {
