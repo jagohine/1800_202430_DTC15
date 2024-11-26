@@ -11,6 +11,9 @@ function loadSkeleton() {
       console.log(
         $("#topNavbarPlaceholder").load("./text/top_nav_after_login.html")
       );
+      console.log(
+        $("#addInspectionBarPlaceholder").load("./text/add_inspection_bar.html")
+      );
       console.log($("#bottomNavbarPlaceholder").load("./text/bottom_nav.html"));
     } else {
       // No user is signed in.
@@ -22,29 +25,6 @@ function loadSkeleton() {
   });
 }
 loadSkeleton(); //invoke the function
-
-// highlight current location on bottom navbar
-function displayNavbarHighlight() {
-  let params = new URL(window.location.href);
-  let pageNow = params.href;
-  console.log(params);
-  console.log(pageNow);
-  if (pageNow.includes("home")) {
-    const iconNow = document.getElementById("homeBtn");
-    if (iconNow) {
-      iconNow.classList.add("filterIcon");
-    }
-  }
-  if (pageNow.includes("archive")) {
-    const iconNow = document.getElementById("archiveBtn");
-    if (iconNow) {
-      iconNow.classList.add("filterIcon");
-    }
-  }
-}
-setTimeout(() => {
-  displayNavbarHighlight();
-}, 500);
 
 // if user does not have any inspection post, render the guide and hide the list on home page
 function newUserGuide() {

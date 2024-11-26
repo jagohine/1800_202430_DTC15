@@ -164,6 +164,30 @@ p{
     left: 50%;
     transform: translate(-50%);
 }
+.add_inspection_section{
+    background-color: #ffffff;
+    z-index: 20;
+    position: sticky;
+    top: 60px;
+    border-radius:0.25rem;
+    /* border: #1D499B 2px dotted ; */
+    margin: 1rem;
+    padding: 0.5rem;
+    width: 576px;
+    font-weight: 600;
+    box-shadow:0 4px 8px 0 rgba(0, 0, 0, 0.1),
+        0 6px 20px 0 rgba(0, 0, 0, 0.1); ;
+}
+.add_inspection_bar{
+    margin-top: 0.5rem;
+    padding:0.25rem;
+    width: 100%;
+    background-color:#00A7E1;
+    border-radius: 0.25rem;
+}
+.add_inspection_bar_icon{
+    align-self:center;
+}
 
 @media screen and (max-width: 425px) {
     .content {
