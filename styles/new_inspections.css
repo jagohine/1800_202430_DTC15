@@ -148,9 +148,7 @@
         font-size: 1rem;
         text-align: center;
     }
-    .addBtn{
-        right: 40px;
-    }
+
 }
 
 @media only screen and (max-width: 768px) and (min-width: 425px) {
@@ -213,9 +211,7 @@
     #slogan-br {
         display: none;
     }
-    .addBtn {
-        right: 20%;
-    }
+
     .content {
         padding-left: 3rem;
         padding-right: 3rem;
