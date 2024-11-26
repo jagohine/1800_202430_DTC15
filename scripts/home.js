@@ -26,10 +26,22 @@ firebase.auth().onAuthStateChanged((user) => {
     console.log("USER:", user); // User is signed in
     console.log("USER ID: ", user.uid);
 
-    function createInspectionCardHTML(imagePath, address, inspectionPostID) {
+    function createInspectionCardHTML(address, inspectionPostID) {
+      // Create an array of images
+      const images = [
+        "images/example_images/apartment1.jpg",
+        "images/example_images/apartment2.webp",
+        "images/example_images/apartment3.jpeg",
+        "images/example_images/apartment4.jpeg",
+        "/images/interior_inspection.png"
+      ];
+
+      // Assign a random image to the img card in html
+      const randomImage = images[Math.floor(Math.random() * images.length)];
+
       return `
                 <div class="card shadow border-0 mb-4">
-                <img src="${imagePath}" class="card-img-top card-image" alt="location of the ongoing item"
+                <img src="${randomImage}" class="card-img-top card-image" alt="location of the ongoing item"
                     style="object-fit: cover" />
                 <div class="card-body d-flex flex-row align-items-center justify-content-between p-3">
                 <p class="card-title fw-semibold">${address}</p>
@@ -58,7 +70,6 @@ firebase.auth().onAuthStateChanged((user) => {
 
             const temporaryDiv = document.createElement("div");
             temporaryDiv.innerHTML = createInspectionCardHTML(
-              "/images/interior_inspection.png",
               address,
               inspectionPostID
             );
