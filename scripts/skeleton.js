@@ -26,6 +26,23 @@ function loadSkeleton() {
 }
 loadSkeleton(); //invoke the function
 
+// highlight current location on bottom navbar
+function displayNavbarHighlight() {
+  let params = new URL(window.location.href);
+  let pageNow = params.href;
+  console.log(params);
+  console.log(pageNow);
+  if (pageNow.includes("home")) {
+    const iconNow = document.getElementById("homeBtn");
+    if (iconNow) {
+      iconNow.classList.add("filterIcon");
+    }
+  }
+}
+setTimeout(() => {
+  displayNavbarHighlight();
+}, 500);
+
 // if user does not have any inspection post, render the guide and hide the list on home page
 function newUserGuide() {
   firebase.auth().onAuthStateChanged(function (user) {
