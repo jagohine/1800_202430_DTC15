@@ -201,6 +201,9 @@ p{
         display: flex;
 
     }
+    .support_column{
+        flex-direction: column;
+    }
 }
 
 @media only screen and (max-width: 768px) and (min-width: 425px) {
@@ -250,6 +253,9 @@ p{
     .guide_text{
         font-size: 1.25rem;
         text-align: center;
+    }
+    .support_column{
+        flex-direction: column;
     }
 }
 

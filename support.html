@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>RealRoom</title>
+    <meta name="comp1800 template" content="My 1800 App" />
+
+    <!-- Required meta tags -->
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <!-- Bootstrap Library CSS CDN go here -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN"
+      crossorigin="anonymous"
+    />
+
+    <!-- Boostrap Library JS CDN  go here -->
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
+      crossorigin="anonymous"
+    ></script>
+
+    <!-- Other libraries go here -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-firestore.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/ui/4.8.1/firebase-ui-auth.js"></script>
+    <link
+      type="text/css"
+      rel="stylesheet"
+      href="https://www.gstatic.com/firebasejs/ui/4.8.1/firebase-ui-auth.css"
+    />
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-storage.js"></script>
+
+    <!-- Link to styles of your own -->
+    <link rel="stylesheet" href="../styles/homepage.css" />
+  </head>
+
+  <body class="body" style="min-height: 100% container">
+    <!--This is the navbar-->
+    <nav id="topNavbarPlaceholder"></nav>
+    <!--End of navbar-->
+
+    <div
+      class="content banner-container d-flex flex-column align-items-start justify-content-start p-4 w-100 fw-medium"
+    >
+      <div>
+        <h2 class="pt-5 mt-5">Contact Us</h2>
+        <p class="pt-4 mt-5">
+          Email or call to learn how RealRoom can solve your inspection problem.
+        </p>
+      </div>
+      <div class="pt-4 pb-4">
+        <p>info@realroom.com</p>
+        <p>607-123-1000</p>
+      </div>
+      <div
+        class="support_column d-flex justify-content-start gap-4 pt-5 mt-5 text-body-secondary fw-normal"
+      >
+        <div>
+          <h5 class="text-primary-emphasis">Customer Support</h5>
+          <p>
+            Thank you for reaching out to us! Please let us know how we can
+            assist you, and we'll be happy to help resolve your concern as
+            quickly as possible.
+          </p>
+        </div>
+        <div>
+          <h5 class="text-primary-emphasis">Feedback and Suggestion</h5>
+          <p>
+            We appreciate your efforts in resolving the issue; however, it might
+            be helpful to provide more detailed instructions to avoid confusion
+            for future users.
+          </p>
+        </div>
+        <div>
+          <h5 class="text-primary-emphasis">Report</h5>
+          <p>
+            If you've experienced any issues or have concerns about an inspector
+            while using our product, our customer service team is here to help.
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <!--This is the bottom navbar-->
+    <nav
+      id="bottomNavbarPlaceholder"
+      class="navbar_bottom shadow-lg border-1"
+    ></nav>
+    <!--End of navbar-->
+  </body>
+
+  <!-- Link to scripts -->
+  <script src="./scripts/script.js"></script>
+  <script src="./scripts/firebaseAPI_RealRoom.js"></script>
+  <script src="./scripts/skeleton.js"></script>
+  <script src="./scripts/main.js"></script>
+  <script src="./scripts/home.js"></script>
+  <script src="./scripts/rate.js"></script>
+</html>
