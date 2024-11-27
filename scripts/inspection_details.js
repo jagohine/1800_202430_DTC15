@@ -252,6 +252,7 @@ async function saveArchive() {
   }
 }
 
+// Read reviews data from Firebase and populate them to the correct inspection
 function populateReviews() {
   console.log("test");
   let inspectionCardTemplate = document.getElementById("reviewCardTemplate");

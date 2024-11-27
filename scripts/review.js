@@ -1,7 +1,7 @@
 // Function to populate the correct address to the review form
 var inspectionPostID = localStorage.getItem("inspectionPostID");
 
-// Function for star reviews
+// Function to enable star reviews
 const stars = document.querySelectorAll('.star');
 stars.forEach((star, index) => {
     star.addEventListener('click', () => {
@@ -15,6 +15,7 @@ stars.forEach((star, index) => {
     });
 });
 
+// Get inspection address from Firebase and populate to review form
 function getInspectonAddress(id) {
     db.collection("inspections")
         .doc(id)
