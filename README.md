@@ -52,9 +52,8 @@ What we'd like to build in the future:
 
 Content of the project folder:
 
-Top level files:
-
 ```
+Top level files:
 
 ├── .gitignore
 ├── about.html
@@ -74,6 +73,7 @@ Top level files:
 └── README.md
 
 It has the following subfolders and files:
+
 ├── .git  
 ├── div_components
     /bottom_menu.html
