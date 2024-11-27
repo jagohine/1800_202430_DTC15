@@ -1,6 +1,6 @@
 function setCookie(name, value, sameSite = "Lax") {
   const date = new Date();
-  date.setTime(date.getTime() +  24 * 60 * 60 * 1000); // set the expiry date to a day from now
+  date.setTime(date.getTime() + 24 * 60 * 60 * 1000); // set the expiry date to a day from now
   const expires = `expires=${date.toUTCString()}`;
   document.cookie = `${name}=${value}; ${expires}; path=/; SameSite=Lax`;
   console.log(
@@ -18,7 +18,8 @@ function goToInspection(inspectionPostIDTag) {
   // set a cookie (expires in a minute)
   setCookie("inspectionPostID", inspectionPostID);
   // go to the inspection details page
-  window.location.href = "inspection_details.html?inspectionPostID=" + inspectionPostID; // Add inspection docID to URL
+  window.location.href =
+    "inspection_details.html?inspectionPostID=" + inspectionPostID; // Add inspection docID to URL
 }
 
 firebase.auth().onAuthStateChanged((user) => {
@@ -39,7 +40,16 @@ firebase.auth().onAuthStateChanged((user) => {
         "images/example_images/apartment8.jpg",
         "images/example_images/apartment9.jpg",
         "images/example_images/apartment10.jpg",
-        "/images/interior_inspection.png"
+        "images/example_images/apartment11.png",
+        "images/example_images/apartment12.png",
+        "images/example_images/apartment13.png",
+        "images/example_images/apartment14.png",
+        "images/example_images/apartment15.png",
+        "images/example_images/apartment16.png",
+        "images/example_images/apartment17.png",
+        "images/example_images/apartment18.png",
+        "images/example_images/apartment19.png",
+        "/images/interior_inspection.png",
       ];
 
       // Assign a random image to the img card in html
