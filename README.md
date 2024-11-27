@@ -8,7 +8,7 @@ RealRoom is a mobile-first web application developed to help tenants, landlords,
 
 - Jago  Hine: 
 - Zoey Jiang: 
-- Khai Phan: an ex-business school student who loves to explore the world of programming and building meaningful applications.
+- Khai Phan: a business school graduate who loves to explore the world of programming and building meaningful applications.
 
 ## 3. Technologies and Resources Used
 
