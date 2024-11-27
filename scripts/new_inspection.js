@@ -48,7 +48,8 @@ function createInspection(event) {
         timestamp: firebase.firestore.FieldValue.serverTimestamp(),
         inspectionCreationDate: firebase.firestore.FieldValue.serverTimestamp(),
         inspectionCompletionDate: null,
-        review: null
+        review: null,
+        isNotified: false
       })
       .then(() => {
         alert("Your request has been submitted!");

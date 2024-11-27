@@ -325,3 +325,28 @@ function populateReviews() {
     });
 }
 populateReviews();
+
+// update notification status when user enter detail page
+async function updateNotificationStatus() {
+  try {
+    const inspectionPostID = getCookie("inspectionPostID");
+    const docRef = db.collection("inspections").doc(inspectionPostID);
+    const inspectionDoc = await docRef.get();
+    if (!inspectionDoc.exists) {
+      console.error("Error: the requested post does not exist");
+      return;
+    }
+    const currentData = inspectionDoc.data();
+    if (
+      currentData.inspectionCompletionDate !== null &&
+      currentData.isNotified === false
+    ) {
+      await docRef.update({ isNotified: true });
+      console.log("Archive status updated to true");
+    }
+  } catch (error) {
+    console.error("Error updating notifications status:", error);
+  }
+}
+
+updateNotificationStatus();
