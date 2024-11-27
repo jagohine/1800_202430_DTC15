@@ -342,10 +342,10 @@ async function updateNotificationStatus() {
       currentData.isNotified === false
     ) {
       await docRef.update({ isNotified: true });
-      console.log("Archive status updated to true");
+      console.log("Notification status updated to true");
     }
   } catch (error) {
-    console.error("Error updating notifications status:", error);
+    console.error("Error updating notification status:", error);
   }
 }
 
