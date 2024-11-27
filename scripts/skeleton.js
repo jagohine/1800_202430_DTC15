@@ -30,15 +30,20 @@ loadSkeleton(); //invoke the function
 function displayNavbarHighlight() {
   let params = new URL(window.location.href);
   let pageNow = params.href;
-  console.log(params);
-  console.log(pageNow);
   if (pageNow.includes("home")) {
     const iconNow = document.getElementById("homeBtn");
     if (iconNow) {
       iconNow.classList.add("filterIcon");
     }
   }
+  if (pageNow.includes("notification")) {
+    const iconNow = document.getElementById("notificationBtn");
+    if (iconNow) {
+      iconNow.classList.add("filterIcon");
+    }
+  }
 }
+// have to wait the navbar fully loaded
 setTimeout(() => {
   displayNavbarHighlight();
 }, 500);
@@ -47,7 +52,6 @@ setTimeout(() => {
 function newUserGuide() {
   firebase.auth().onAuthStateChanged(function (user) {
     if (user) {
-      console.log("USER ID: ", user.uid);
       let params = new URL(window.location.href);
       let pageNow = params.href;
       if (pageNow.includes("home")) {
@@ -56,7 +60,6 @@ function newUserGuide() {
           .get()
           .then((documents) => {
             if (documents.empty) {
-              console.log("no post for the user");
               console.log($("#guideInfoPlaceholder").load("./text/guide.html"));
               let ongoingList = document.getElementById("ongoing_inspections");
               if (ongoingList) {
