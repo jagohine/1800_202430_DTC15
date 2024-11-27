@@ -225,4 +225,19 @@
     font-size: 18px;
     align-self: center;
     margin-top: 20px;
+}.form-control::placeholder {
+    /* Chrome, Firefox, Opera, Safari 10.1+ */
+    color: rgb(164, 164, 164);
+    opacity: 1;
+    /* Firefox */
+}
+
+.form-control:-ms-input-placeholder {
+    /* Internet Explorer 10-11 */
+    color: rgb(164, 164, 164);
+}
+
+.form-control::-ms-input-placeholder {
+    /* Microsoft Edge */
+    color: rgb(164, 164, 164);
 }
