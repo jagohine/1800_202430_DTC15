@@ -82,3 +82,32 @@ function newUserGuide() {
 }
 
 newUserGuide();
+
+function getNewNotificationNumber() {
+  firebase.auth().onAuthStateChanged(function (user) {
+    if (user) {
+      const userID = user.uid;
+      db.collection("inspections")
+        .where("userID", "==", userID)
+        .get()
+        .then((queryResults) => {
+          const filteredResults = queryResults.docs
+            .map((doc) => ({ id: doc.id, ...doc.data() }))
+            .filter(
+              (doc) =>
+                doc.inspectionCompletionDate !== null &&
+                doc.isNotified === false
+            );
+          console.log("Filtered Results for skeleton:", filteredResults);
+          return filteredResults.length;
+        })
+        .catch((error) => {
+          console.error("Error fetching documents: ", error);
+        });
+    } else {
+      console.log("Notification: No user is signed in");
+    }
+  });
+}
+
+console.log("Notification Number:", getNewNotificationNumber());
