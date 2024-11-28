@@ -161,26 +161,20 @@ async function test() {
   reviewButton.className = "btn btn-primary bottom-0 end-0 m-3";
   reviewButton.onclick = saveInspectionDocIDAndRedirect;
 
-  const archiveIcon = document.createElement("i");
-  archiveIcon.textContent = "archive";
-  archiveIcon.id = "archiveIcon";
-  archiveIcon.className = "material-icons archiveIcon align-self-center ml-4";
-  archiveIcon.onclick = saveArchive;
-
   // Append buttons if it makes sense
   if (post.inspectionCompletionDate) {
-    console.log(
-      "Inspection date's here!: ",
-      post.inspectionCompletionDate.toDate()
-    );
-    archiveAndReviewDiv.appendChild(archiveIcon);
-    if (post.archived) {
-      archiveIcon.classList.add("colorChanged");
-    } else {
-      archiveIcon.classList.remove("colorInit");
+    if (!post.archived) {
+      const trashIcon = document.createElement("i");
+      trashIcon.textContent = "delete";
+      trashIcon.id = "archiveIcon";
+      trashIcon.className = "material-icons text-danger d-flex justify-content-end";
+      trashIcon.style.fontSize = "48px"; 
+      trashIcon.style.marginRight = "20px"; 
+      trashIcon.onclick = saveArchive;
+      const reviewCardGroup = document.getElementById("reviewCardGroup");
+      reviewCardGroup.insertAdjacentElement('afterend', trashIcon);
     }
-
-    if (!post.review) {
+   if (!post.review) {
       console.log("This hasn't been reviewed yet!");
       archiveAndReviewDiv.appendChild(reviewButton);
     } else {
@@ -232,9 +226,9 @@ async function saveArchive() {
     await docRef.update({ archived: newArchiveStatus });
     console.log("Archive status updated to:", newArchiveStatus);
     if (newArchiveStatus) {
-      alert("Successfully archived!");
+      alert("Your post was sent to the trash!");
     } else {
-      alert("Archive removed!");
+      alert("Your post has been removed from the trash!");
     }
     // double check that we updated correctly, for logging/debugging
     const updatedDocSnap = await docRef.get();
@@ -243,7 +237,7 @@ async function saveArchive() {
     // set the archiveIcon accordingly
     const archiveIcon = document.getElementById("archiveIcon");
     if (newArchiveStatus) {
-      window.location.href = "archive.html";
+      window.location.href = "trash.html";
     } else {
       window.location.href = "home.html";
     }
