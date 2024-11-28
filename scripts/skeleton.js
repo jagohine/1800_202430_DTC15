@@ -99,7 +99,7 @@ function getNewNotificationNumber() {
                 doc.isNotified === false
             );
           console.log("Filtered Results for skeleton:", filteredResults);
-          return filteredResults.length;
+          console.log("Notification Number:", filteredResults.length);
         })
         .catch((error) => {
           console.error("Error fetching documents: ", error);
@@ -110,4 +110,4 @@ function getNewNotificationNumber() {
   });
 }
 
-console.log("Notification Number:", getNewNotificationNumber());
+getNewNotificationNumber();
