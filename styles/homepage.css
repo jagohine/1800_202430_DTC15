@@ -38,6 +38,7 @@ p{
     position: fixed;
     top:0
 }
+
 .navbar_bottom{
     align-items: center;
     justify-content: space-between;
@@ -47,8 +48,7 @@ p{
     padding: 0.25rem;
     z-index: 1;
     position: fixed;
-    bottom: 0;
-    
+    bottom: 0;    
 }
 
 .navbar_link{

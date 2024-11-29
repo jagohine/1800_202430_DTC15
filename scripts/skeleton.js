@@ -8,19 +8,14 @@ function loadSkeleton() {
       // If the "user" variable is not null, then someone is logged in
       // User is signed in.
       // Do something for the user here.
-      console.log(
-        $("#topNavbarPlaceholder").load("./text/top_nav_after_login.html")
-      );
-      console.log(
-        $("#addInspectionBarPlaceholder").load("./text/add_inspection_bar.html")
-      );
-      console.log($("#bottomNavbarPlaceholder").load("./text/bottom_nav.html"));
+      $("#topNavbarPlaceholder").load("./text/top_nav_after_login.html");
+      $("#addInspectionBarPlaceholder").load("./text/add_inspection_bar.html");
+      $("#bottomNavbarPlaceholder").load("./text/bottom_nav.html");
     } else {
       // No user is signed in.
-      console.log(
-        $("#topNavbarPlaceholder").load("./text/top_nav_before_login.html")
-      );
-      console.log($("#bottomNavbarPlaceholder").load("./text/bottom_nav.html"));
+
+      $("#topNavbarPlaceholder").load("./text/top_nav_before_login.html");
+      $("#bottomNavbarPlaceholder").load("./text/bottom_nav.html");
     }
   });
 }

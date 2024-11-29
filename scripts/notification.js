@@ -24,7 +24,10 @@ firebase.auth().onAuthStateChanged((user) => {
 
             filteredResults.forEach((item) => {
               const notification = document.createElement("p");
-              notification.textContent = `Inspection ID: ${item.id}, Completion Date: ${item.inspectionCompletionDate}`;
+              notification.innerHTML = `<div class="alert alert-primary p-2 m-2" role="alert">
+                  Inspection ID: ${item.id}  on ${item.address} has been finished. 
+                  click <a id="${item.id}" href="http://127.0.0.1:5500/inspection_details.html?inspectionPostID=${item.id}">here</a> to the post
+              </div>`;
               unNotifiedPosts.appendChild(notification);
             });
           } else {

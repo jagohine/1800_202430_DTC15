@@ -167,14 +167,15 @@ async function test() {
       const trashIcon = document.createElement("i");
       trashIcon.textContent = "delete";
       trashIcon.id = "archiveIcon";
-      trashIcon.className = "material-icons text-danger d-flex justify-content-end";
-      trashIcon.style.fontSize = "48px"; 
-      trashIcon.style.marginRight = "20px"; 
+      trashIcon.className =
+        "material-icons text-danger d-flex justify-content-end";
+      trashIcon.style.fontSize = "48px";
+      trashIcon.style.marginRight = "20px";
       trashIcon.onclick = saveArchive;
       const reviewCardGroup = document.getElementById("reviewCardGroup");
-      reviewCardGroup.insertAdjacentElement('afterend', trashIcon);
+      reviewCardGroup.insertAdjacentElement("afterend", trashIcon);
     }
-   if (!post.review) {
+    if (!post.review) {
       console.log("This hasn't been reviewed yet!");
       archiveAndReviewDiv.appendChild(reviewButton);
     } else {
@@ -324,6 +325,7 @@ populateReviews();
 async function updateNotificationStatus() {
   try {
     const inspectionPostID = getCookie("inspectionPostID");
+    console.log(inspectionPostID);
     const docRef = db.collection("inspections").doc(inspectionPostID);
     const inspectionDoc = await docRef.get();
     if (!inspectionDoc.exists) {
