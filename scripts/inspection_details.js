@@ -324,7 +324,8 @@ populateReviews();
 // update notification status when user enter detail page
 async function updateNotificationStatus() {
   try {
-    const inspectionPostID = getCookie("inspectionPostID");
+    let params = new URL(window.location.href);
+    let inspectionPostID = params.searchParams.get("inspectionPostID");
     console.log(inspectionPostID);
     const docRef = db.collection("inspections").doc(inspectionPostID);
     const inspectionDoc = await docRef.get();

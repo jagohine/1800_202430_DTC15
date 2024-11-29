@@ -105,4 +105,6 @@ function getNewNotificationNumber() {
   });
 }
 
-getNewNotificationNumber();
+setTimeout(() => {
+  getNewNotificationNumber();
+}, 500);
