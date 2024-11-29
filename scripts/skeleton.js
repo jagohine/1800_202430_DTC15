@@ -94,7 +94,7 @@ function getNewNotificationNumber() {
                 doc.isNotified === false
             );
           // console.log("Filtered Results for skeleton:", filteredResults);
-          // console.log("Notification Number:", filteredResults.length);
+          console.log("Notification Number:", filteredResults.length);
           if (filteredResults.length > 0) {
             const notificationBtn = document.querySelectorAll(
               "div.position-relative"
@@ -125,4 +125,4 @@ function getNewNotificationNumber() {
 
 setTimeout(() => {
   getNewNotificationNumber();
-}, 500);
+}, 1000);
