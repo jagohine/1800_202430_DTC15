@@ -93,8 +93,26 @@ function getNewNotificationNumber() {
                 doc.inspectionCompletionDate !== null &&
                 doc.isNotified === false
             );
-          console.log("Filtered Results for skeleton:", filteredResults);
-          console.log("Notification Number:", filteredResults.length);
+          // console.log("Filtered Results for skeleton:", filteredResults);
+          // console.log("Notification Number:", filteredResults.length);
+          if (filteredResults.length > 0) {
+            const notificationBtn = document.querySelectorAll(
+              "div.position-relative"
+            );
+            const badge = document.createElement("span");
+            badge.innerHTML = "";
+            badge.innerHTML = filteredResults.length;
+            badge.classList.add(
+              "position-absolute",
+              "top-0",
+              "start-100",
+              "translate-middle",
+              "badge",
+              "rounded-pill",
+              "bg-danger"
+            );
+            notificationBtn[0].appendChild(badge);
+          }
         })
         .catch((error) => {
           console.error("Error fetching documents: ", error);
