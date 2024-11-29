@@ -36,7 +36,7 @@ firebase.auth().onAuthStateChanged((user) => {
             unNotifiedPosts.innerHTML = "";
             filteredResults.forEach((item) => {
               const notification = document.createElement("div");
-              notification.innerHTML = `<div class="alert alert-primary p-3 m-3 w-100" role="alert">
+              notification.innerHTML = `<div class="alert alert-primary p-2 m-2 w-100" role="alert">
                   Inspection on ${item.address} has been updated by our inspector. 
                   click <a id="${item.id}" href="http://127.0.0.1:5500/inspection_details.html?inspectionPostID=${item.id}">here</a> to see the response.
               </div>`;
@@ -50,8 +50,8 @@ firebase.auth().onAuthStateChanged((user) => {
             finishNotificationPosts.innerHTML = "";
             filteredFInishedResults.forEach((item) => {
               const pastNotification = document.createElement("div");
-              pastNotification.innerHTML = `<div class="alert alert-light p-3 m-3 w-100" role="alert">
-                  Inspection on ${item.address} id="${item.id}" completed.
+              pastNotification.innerHTML = `<div class="alert alert-light p-2 m-2 w-100" role="alert">
+                  Inspection on ${item.address} completed.
               </div>`;
               finishNotificationPosts.appendChild(pastNotification);
             });

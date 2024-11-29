@@ -95,6 +95,7 @@ p{
 }
 .content_inspection_list{
     padding-top:3rem;
+    width: 36rem;
 }
 .content_inspection_list_title{
     width: 36rem;
@@ -201,6 +202,9 @@ p{
     .content_inspection_list_title{
         width: 18rem;
     }
+    .content_inspection_list{
+        width: 18rem;
+    }
     .card{
         width: 18rem;
         height: 14rem;
@@ -271,6 +275,9 @@ p{
         margin: 0 auto;
     }
     .content_inspection_list_title{
+        width: 22rem;
+    }
+    .content_inspection_list{
         width: 22rem;
     }
     .card {
