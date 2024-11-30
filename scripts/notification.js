@@ -1,3 +1,13 @@
+function setCookie(name, value, sameSite = "Lax") {
+  const date = new Date();
+  date.setTime(date.getTime() + 24 * 60 * 60 * 1000); // set the expiry date to a day from now
+  const expires = `expires=${date.toUTCString()}`;
+  document.cookie = `${name}=${value}; ${expires}; path=/; SameSite=Lax`;
+  console.log(
+    `Setting cookie: ${name}=${value}; ${expires}; path=/; SameSite=${sameSite}`
+  );
+}
+
 firebase.auth().onAuthStateChanged((user) => {
   if (user) {
     // console.log("USER:", user); // User is signed in
@@ -41,6 +51,13 @@ firebase.auth().onAuthStateChanged((user) => {
                   Click <a id="${item.id}" href="http://127.0.0.1:5500/inspection_details.html?inspectionPostID=${item.id}">here</a> to see the response.
               </div>`;
               unNotifiedPosts.appendChild(notification);
+
+              const link = notification.querySelector(`#${item.id}`);
+              link.onclick = (event) => {
+                event.preventDefault();
+                setCookie("inspectionPostID", item.id);
+                window.location.href = link.href;
+              };
             });
           } else {
             // console.log("No new notifications.");
