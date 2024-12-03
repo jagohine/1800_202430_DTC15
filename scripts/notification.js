@@ -36,11 +36,6 @@ firebase.auth().onAuthStateChanged((user) => {
               (doc) =>
                 doc.inspectionCompletionDate !== null && doc.isNotified === true
             );
-          // console.log(
-          //   "Filtered Results:",
-          //   filteredResults,
-          //   filteredFInishedResults
-          // );
 
           if (filteredResults.length > 0) {
             unNotifiedPosts.innerHTML = "";
