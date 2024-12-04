@@ -107,10 +107,14 @@ async function test() {
   Object.entries(post.checkbox).forEach(([key, value]) => {
     // console.log(`Adding content| ${key}: ${value}`);
     if (value != "unchecked") {
-      addInspectionDetailToPage(
-        fieldToLabel(key),
-        "Waiting to be inspected..."
-      );
+      if (value != "checked") {
+        addInspectionDetailToPage(fieldToLabel(key), value);
+      } else {
+        addInspectionDetailToPage(
+          fieldToLabel(key),
+          "Waiting to be inspected..."
+        );
+      }
     }
   });
   if (post.extraRequest) {
