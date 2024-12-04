@@ -41,39 +41,47 @@ firebase.auth().onAuthStateChanged((user) => {
           //   filteredResults,
           //   filteredFInishedResults
           // );
-
-          if (filteredResults.length > 0) {
-            unNotifiedPosts.innerHTML = "";
-            filteredResults.forEach((item) => {
-              const notification = document.createElement("div");
-              notification.innerHTML = `<div class="alert alert-primary p-2 m-2 w-100" role="alert">
-                  Inspection on ${item.address} has been updated by our inspector. 
-                  Click <a id="${item.id}" href="http://127.0.0.1:5500/inspection_details.html?inspectionPostID=${item.id}">here</a> to see the response.
-              </div>`;
-              unNotifiedPosts.appendChild(notification);
-
-              const link = notification.querySelector(`#${item.id}`);
-              link.onclick = (event) => {
-                event.preventDefault();
-                setCookie("inspectionPostID", item.id);
-                window.location.href = link.href;
-              };
-            });
+          if (
+            (filteredFInishedResults.length = 0) &&
+            (filteredResults.length = 0)
+          ) {
+            notificationList.textContent = "No new notifications.";
           } else {
-            // console.log("No new notifications.");
-            // notificationList.textContent = "No new notifications.";
-          }
-          if (filteredFInishedResults.length > 0) {
-            finishNotificationPosts.innerHTML = "";
-            filteredFInishedResults.forEach((item) => {
-              const pastNotification = document.createElement("div");
-              pastNotification.innerHTML = `<div class="alert alert-light p-2 m-2 w-100" role="alert">
+            if (filteredResults.length > 0) {
+              unNotifiedPosts.innerHTML = "";
+              filteredResults.forEach((item) => {
+                const notification = document.createElement("div");
+                notification.innerHTML = `<a  style="text-decoration: none" id="${item.id}" href="http://127.0.0.1:5500/inspection_details.html?inspectionPostID=${item.id}"> 
+                <div class="alert alert-primary p-2 m-2 w-100" role="alert">
+                  Inspection on ${item.address} has been updated by our inspector. 
+                  Click to see the response.
+              </div>
+              </a>`;
+                unNotifiedPosts.appendChild(notification);
+
+                const link = notification.querySelector(`#${item.id}`);
+                link.onclick = (event) => {
+                  event.preventDefault();
+                  setCookie("inspectionPostID", item.id);
+                  window.location.href = link.href;
+                };
+              });
+            } else {
+              // console.log("No new notifications.");
+              // notificationList.textContent = "No new notifications.";
+            }
+            if (filteredFInishedResults.length > 0) {
+              finishNotificationPosts.innerHTML = "";
+              filteredFInishedResults.forEach((item) => {
+                const pastNotification = document.createElement("div");
+                pastNotification.innerHTML = `<div class="alert alert-light p-2 m-2 w-100" role="alert">
                   Inspection on ${item.address} is completed.
               </div>`;
-              finishNotificationPosts.appendChild(pastNotification);
-            });
-          } else {
-            // console.log("No past notifications available.");
+                finishNotificationPosts.appendChild(pastNotification);
+              });
+            } else {
+              // console.log("No past notifications available.");
+            }
           }
         })
         .catch((error) => {
