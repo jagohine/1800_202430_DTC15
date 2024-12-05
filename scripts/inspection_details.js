@@ -128,7 +128,7 @@ async function test() {
   );
   inspectionAddress = document.getElementById("inspectionAddress");
   inspectorName = document.getElementById("inspectorName");
-  inspectionCreationDate.textContent = post.inspectionCreationDate.toDate();
+  inspectionCreationDate.textContent = post.inspectionCreationDate.toDate().toDateString();
 
   if (inspectionCompletionDateDiv && post.inspectionCompletionDate) {
     function produceInspectionCompletionDateHTML(date) {
@@ -136,7 +136,7 @@ async function test() {
     class="border rounded p-2" id="inspectionCompletionDate">${date}</div>`;
     }
     inspectionCompletionDateDiv.innerHTML = produceInspectionCompletionDateHTML(
-      post.inspectionCompletionDate.toDate()
+      post.inspectionCompletionDate.toDate().toDateString()
     );
   }
   if (post.address) {
