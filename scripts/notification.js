@@ -42,8 +42,8 @@ firebase.auth().onAuthStateChanged((user) => {
           //   filteredFInishedResults
           // );
           if (
-            (filteredFInishedResults.length = 0) &&
-            (filteredResults.length = 0)
+            filteredFInishedResults.length == 0 &&
+            filteredResults.length == 0
           ) {
             notificationList.textContent = "No new notifications.";
           } else {
@@ -66,11 +66,12 @@ firebase.auth().onAuthStateChanged((user) => {
                   window.location.href = link.href;
                 };
               });
-            } else {
-              // console.log("No new notifications.");
-              // notificationList.textContent = "No new notifications.";
             }
+            // console.log("No new notifications.");
+            // notificationList.textContent = "No new notifications.";
+
             if (filteredFInishedResults.length > 0) {
+              console.log(filteredFInishedResults.length);
               finishNotificationPosts.innerHTML = "";
               filteredFInishedResults.forEach((item) => {
                 const pastNotification = document.createElement("div");
@@ -80,7 +81,7 @@ firebase.auth().onAuthStateChanged((user) => {
                 finishNotificationPosts.appendChild(pastNotification);
               });
             } else {
-              // console.log("No past notifications available.");
+              console.log("No past notifications available.");
             }
           }
         })
