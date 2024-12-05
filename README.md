@@ -30,8 +30,7 @@ Here are the key features of our app:
 - After a request has been completed by an inspector, the post will be moved to Past Inspections section on the homepage.
 - Click on the "Details" button on the inspection to view the responses from the inspector.
 - For each completed inspection, you can rate the inpsector's service by clicking the "Leave a review" button inside each finished inspection and fill a form.
-- To archive/unarchive a completed inspection, click "Archive" button inside each inspection post.
-- To view archived posts, click the "Archive" button on the top nav bar or in the hamburger menu icon.
+- To move a completed inspection to Trash, click the Trash icon inside each inspection post.
 
 ## 5. Known Bugs and Limitations
 
