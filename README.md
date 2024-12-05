@@ -68,7 +68,8 @@ Top level files:
 ├── new_inspection.html
 ├── review.html
 ├── support.html
-├── thanks.html              
+├── thanks.html   
+├── trash.html       
 └── README.md
 
 It has the following subfolders and files:
