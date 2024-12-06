@@ -128,12 +128,13 @@ async function test() {
   );
   inspectionAddress = document.getElementById("inspectionAddress");
   inspectorName = document.getElementById("inspectorName");
-  inspectionCreationDate.textContent = post.inspectionCreationDate.toDate().toDateString();
+  inspectionCreationDate.textContent = post.inspectionCreationDate
+    .toDate()
+    .toDateString();
 
   if (inspectionCompletionDateDiv && post.inspectionCompletionDate) {
     function produceInspectionCompletionDateHTML(date) {
-      return `<label class="form-label fw-bold">Inspection Completion Date</label><div
-    class="border rounded p-2" id="inspectionCompletionDate">${date}</div>`;
+      return `${date}`;
     }
     inspectionCompletionDateDiv.innerHTML = produceInspectionCompletionDateHTML(
       post.inspectionCompletionDate.toDate().toDateString()
@@ -142,18 +143,19 @@ async function test() {
   if (post.address) {
     inspectionAddress.textContent = post.address;
   }
-  if (post.inspector) {
-    inspectorRef = await post.inspector.get();
-    inspectorData = inspectorRef.data();
-    if (inspectorData) {
-      if (post.inspector) {
-        if (post.inspector.name) {
-          inspectorName.textContent = post.inspector.name;
-          console.log("INSPECTOR NAME: ", inspectorData.name);
-        }
-      }
-    }
-  }
+  inspectorName.textContent = "RealRoom Professional Inspector Team";
+  // if (post.inspector) {
+  //   inspectorRef = await post.inspector.get();
+  //   inspectorData = inspectorRef.data();
+  //   if (inspectorData) {
+  //     if (post.inspector) {
+  //       if (post.inspector.name) {
+  //         inspectorName.textContent = post.inspector.name;
+  //         console.log("INSPECTOR NAME: ", inspectorData.name);
+  //       }
+  //     }
+  //   }
+  // }
 
   // only display review and archive buttons where it makes sense
 
