@@ -144,18 +144,6 @@ async function test() {
     inspectionAddress.textContent = post.address;
   }
   inspectorName.textContent = "RealRoom Professional Inspector Team";
-  // if (post.inspector) {
-  //   inspectorRef = await post.inspector.get();
-  //   inspectorData = inspectorRef.data();
-  //   if (inspectorData) {
-  //     if (post.inspector) {
-  //       if (post.inspector.name) {
-  //         inspectorName.textContent = post.inspector.name;
-  //         console.log("INSPECTOR NAME: ", inspectorData.name);
-  //       }
-  //     }
-  //   }
-  // }
 
   // only display review and archive buttons where it makes sense
 
