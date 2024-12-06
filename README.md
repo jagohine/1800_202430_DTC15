@@ -54,22 +54,24 @@ Content of the project folder:
 ```
 Top level files:
 
+├── .firebaserc
 ├── .gitignore
+├── 404.html
 ├── about.html
 ├── archive.html
-├── archived.html
+├── firebase.json
+├── firestore.indexes.json
+├── firestore.rules
 ├── home.html
 ├── index.html
-├── inspection_details_template.html
-├── inspection_details.html
-├── inspections_request_example.html              
+├── inspection_details.html            
 ├── login.html
 ├── main.html
 ├── new_inspection.html
+├── notification.html
 ├── review.html
 ├── support.html
-├── thanks.html   
-├── trash.html       
+├── thanks.html       
 └── README.md
 
 It has the following subfolders and files:
@@ -123,17 +125,14 @@ It has the following subfolders and files:
     /RR_background.jpg    
 ├── scripts                  
     /archive.js
-    /archived.js
     /authentication.js
     /firebaseAPI_RealRoom.js
-    /home.js
-    /inspection_details_template_example.js    
-    /inspection_details_template.js     
+    /home.js      
     /inspection_details.js   
     /main.js
     /menu.js
     /new_inspection.js
-    /ongoing_inspection.js
+    /notification.js
     /rate.js
     /review.js
     /script.js
