@@ -221,9 +221,9 @@ async function saveArchive() {
     await docRef.update({ archived: newArchiveStatus });
     console.log("Archive status updated to:", newArchiveStatus);
     if (newArchiveStatus) {
-      alert("Your post was sent to the trash!");
+      alert("Your post was sent to the Archive!");
     } else {
-      alert("Your post has been removed from the trash!");
+      alert("Your post has been removed from the Archive!");
     }
     // double check that we updated correctly, for logging/debugging
     const updatedDocSnap = await docRef.get();
@@ -232,7 +232,7 @@ async function saveArchive() {
     // set the archiveIcon accordingly
     const archiveIcon = document.getElementById("archiveIcon");
     if (newArchiveStatus) {
-      window.location.href = "trash.html";
+      window.location.href = "archive.html";
     } else {
       window.location.href = "home.html";
     }
