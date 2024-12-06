@@ -26,11 +26,13 @@ Here are the key features of our app:
 - Start a new post for an inspection request by clicking the "plus" button on the top of the homepage or at the bottom nav bar.
 - In the form, select the areas of the room that you want the inspector to inspect and response with details.
 - Once a post is created and waiting to be inspected, you can view the post in the Ongoing Inspections section on the homepage.
+- Everytime there is an update on an inspection, the notification icon on the bottom navbar will display the number of notification icon.
+- Click on the notification icon to see all the notification, and click on one notification to view the details inside the inspection.
 - Click the "Details" button on each post to view the details.
 - After a request has been completed by an inspector, the post will be moved to Past Inspections section on the homepage.
 - Click on the "Details" button on the inspection to view the responses from the inspector.
 - For each completed inspection, you can rate the inpsector's service by clicking the "Leave a review" button inside each finished inspection and fill a form.
-- To move a completed inspection to Trash, click the Trash icon inside each inspection post.
+- To move a completed inspection to Archive, click the bin icon inside each inspection post.
 
 ## 5. Known Bugs and Limitations
 
@@ -76,12 +78,8 @@ Top level files:
 
 It has the following subfolders and files:
 
-├── .git  
-├── div_components
-    /bottom_menu.html
-    /inspection_requests.html
-    /ongoing_inspections.html
-    /past_inspections.html            
+├── .firebase     
+    /hosting..cache     
 ├── images    
     ├── assets
         /add_circle.svg
@@ -105,9 +103,6 @@ It has the following subfolders and files:
         /apartment8.jpg
         /apartment9.jpg
         /apartment10.jpg
-        /girl.png
-        /girl2.png
-        /man.png
     ├── icons
         /home.svg
         /messages.svg
@@ -119,8 +114,6 @@ It has the following subfolders and files:
     /archive.svg
     /colorpalette.jpg
     /interior_inspection.png
-    /logo.jpg
-    /NV01.jpg
     /realroom-high-resolution-logo.svg
     /RR_background.jpg    
 ├── scripts                  
