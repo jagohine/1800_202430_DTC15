@@ -6,7 +6,7 @@ RealRoom is a mobile-first web application developed to help tenants, landlords,
 
 ## 2. Contributors
 
-- Jago  Hine: 
+- Jago Hine: a BCIT student with a passion for abstraction. 
 - Zoey Jiang: a BCIT student with a background in architecture and a passion for developing innovative software solutions.
 - Khai Phan: a business school graduate who loves to explore the world of programming and building meaningful applications.
 
